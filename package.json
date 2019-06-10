@@ -1,0 +1,22 @@
+{
+  "name": "wit-entreprise",
+  "version": "1.0.0",
+  "description": "index.jsx",
+  "main": "index.jsx",
+  "scripts": {
+    "dev": "parcel --public-url / src/main/resources/app/index.html --out-dir target/classes/static",
+    "build": "parcel build --public-url / src/main/resources/app/index.html --out-dir target/classes/static",
+    "watch": "parcel watch --public-url / src/main/resources/app/index.html --out-dir target/classes/static"
+  },
+  "repository": "git@github.com:ines-beugre/wit-entreprise.git",
+  "author": "Inès Beguré",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.8.6",
+    "dotenv": "^7.0.0"
+  }
+}
