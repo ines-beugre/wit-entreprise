@@ -40,3 +40,6 @@ mvnw.cmd
 *.DS_Store
 yarn.lock
 application-dev.properties
+
+id_rsa
+id_rsa.pub
