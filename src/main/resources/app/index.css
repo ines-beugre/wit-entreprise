@@ -20,6 +20,9 @@
 
 .app-navbar {
     font-size: 20px;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 70%;
 }
 
 .app-navbar ul{
@@ -46,6 +49,10 @@
     background-color: #111;
 }
 
+main {
+    margin-top: 80px;
+
+}
 span {
     text-transform: capitalize;
 }
