@@ -3,7 +3,7 @@ package fr.witentreprise.formation.exception;
 public enum CodeMessage {
 
     //Formation
-    XAA("XAA", "Formation'id is not valid"),
+    XAA("XAA", "Formation is not valid"),
     XAB("XAB", "Formation'id is not valid");
 
     //Person

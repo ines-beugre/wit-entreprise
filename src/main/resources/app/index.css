@@ -27,7 +27,7 @@
     width: 100%;
 }
 
-.sticky + .content {
+.sticky + main {
     padding-top: 102px;
 }
 

@@ -14,11 +14,18 @@ const defaultState = {
         description: '',
         modules: []
     },
+    formations: [],
     isPending: false
 };
 
 const formationsReducer = (state = defaultState, action) => {
     switch (action.type) {
+        case types.SET_FORMATION:
+            return {
+                ...state,
+                formation: action.formation
+            };
+
         case types.SET_FORMATIONS:
             return {
                 ...state,
