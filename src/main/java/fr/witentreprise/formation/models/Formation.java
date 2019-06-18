@@ -21,6 +21,7 @@ public class Formation {
     private String goals;
     private String description;
     private List<Module> modules;
+    private String theme;
     private String image;
 
     public Formation() {
@@ -125,6 +126,14 @@ public class Formation {
         this.modules = modules;
     }
 
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
     public String getImage() {
         return image;
     }
@@ -148,6 +157,7 @@ public class Formation {
                 ", goals='" + goals + '\'' +
                 ", description='" + description + '\'' +
                 ", modules=" + modules +
+                ", theme='" + theme + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
