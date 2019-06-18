@@ -1,0 +1,34 @@
+.formations {
+    margin-top: 3%;
+}
+
+.formations-pending {
+    color: 	#FF7F50;
+}
+
+.liste-formations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
+
+    /*display: grid;*/
+    /*grid-template-columns: repeat(2, 1fr);*/
+    /*grid-template-rows: 300px 300px 300px;*/
+
+}
+
+.ligne-formation {
+    margin-bottom: 5%;
+}
+
+.ligne-formation span{
+    font-size: 20px;
+    color: 	#FF8C00;
+}
+
+.image {
+    width: 350px;
+    height: 250px;
+}

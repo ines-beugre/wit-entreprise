@@ -6,17 +6,22 @@
   "scripts": {
     "dev": "parcel --public-url / src/main/resources/app/index.html --out-dir target/classes/static",
     "build": "parcel build --public-url / src/main/resources/app/index.html --out-dir target/classes/static",
-    "watch": "parcel watch --public-url / src/main/resources/app/index.html --out-dir target/classes/static"
+    "watch": "parcel watch --public-url / src/main/resources/app/index.html --out-dir target/classes/static --no-hmr"
   },
   "repository": "git@github.com:ines-beugre/wit-entreprise.git",
   "author": "Inès Beguré",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
-    "react": "^16.0.0",
+    "dotenv": "^7.0.0",
+    "react": ">=15",
     "react-dom": "^16.8.6",
-    "dotenv": "^7.0.0"
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }
