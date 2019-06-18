@@ -1,13 +1,28 @@
 import React from 'react';
 import 'dotenv';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import Home from './pages/home/home';
 import Formations from './components/formations/formations';
 import './index.css';
 import logoWit from './images/wit.png';
 
 export default class Main extends React.Component {
+
+    componentDidMount() {
+        const header = document.getElementById("myHeader");
+        const sticky = header.offsetTop;
+        window.onscroll =  this.scroll(header, sticky);
+    }
+
+    scroll (header, sticky) {
+        return () => {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky")
+            }
+        }
+    }
 
     render() {
         return (
@@ -18,7 +33,7 @@ export default class Main extends React.Component {
                              alt="Logo Wit"
                              src={logoWit}/>
 
-                        <nav className="app-navbar">
+                        <nav className="app-navbar" id="myHeader">
                             <ul className="navbar-nav">
                                 <li className="nav-item active">
                                     <Link to="/" className="nav-link">
