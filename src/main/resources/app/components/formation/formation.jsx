@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getFormation, getFormations} from "../../redux/formations/dispatch";
 import IsPending from "../isPending/isPending";
-//import moment from 'moment/locale/fr';
 import moment from 'moment';
+import 'moment/locale/fr';
 import './formation.css'
 
 class Formation extends React.Component {
@@ -14,6 +14,10 @@ class Formation extends React.Component {
 
     render() {
         const {formation, isPending} = this.props;
+        const modules = formation.modules;
+
+        console.log('formation', formation);
+        console.log('modules', modules);
 
         return(
           <div className="formation-container">
@@ -26,12 +30,44 @@ class Formation extends React.Component {
                           <div >
                               <div className="formation-theme-date">
                                   <div className="formation-theme">{formation.theme}</div>
-                                  <div className="formation-date">{moment(formation.date).locale('fr').format('DD MMMM YYYY')} </div>
+                                  <div className="formation-date">{moment(formation.date).format('DD MMMM YYYY')} </div>
                               </div>
-
                               <img className="formation-image" src = {formation.image}/>
-                          </div>
 
+                              <div className="formation-modules">
+
+                                  {
+                                      modules &&
+                                      modules.map((module) => {
+                                          return (
+                                              <div key={module.id} className="timeline">
+
+                                                  <div  className="container right">
+                                                      <div className="content">
+                                                          <div className="content-hour">
+                                                              <div className="content-start">
+                                                                  {moment(module.startTime).format('LT')}
+                                                              </div>
+
+                                                              <div className="content-end">
+                                                                  {moment(module.endTime).format('LT')}
+                                                              </div>
+
+                                                          </div>
+
+                                                          <div className="content-name">
+                                                              {module.name} {" "}
+                                                          </div>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          )
+                                      })
+                                  }
+
+                              </div>
+                          </div>
 
                       </div>
               }

@@ -2,8 +2,7 @@ package fr.witentreprise.formation.models;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Formation {
@@ -11,11 +10,11 @@ public class Formation {
     @Id
     private String id;
     private String name;
-    private LocalDate date;
+    private LocalDateTime date;
     private String place;
     private String price;
     private String target;
-    private LocalDate deadline;
+    private LocalDateTime deadline;
     private List<Person> formers;
     private List<Person> suscribers;
     private String goals;
@@ -25,9 +24,6 @@ public class Formation {
     private String image;
 
     public Formation() {
-        formers = new ArrayList<>();
-        suscribers = new ArrayList<>();
-        modules = new ArrayList<>();
     }
 
     public String getId() {
@@ -46,11 +42,11 @@ public class Formation {
         this.name = name;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -78,11 +74,11 @@ public class Formation {
         this.target = target;
     }
 
-    public LocalDate getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
 

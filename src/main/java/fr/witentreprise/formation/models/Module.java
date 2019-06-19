@@ -2,15 +2,15 @@ package fr.witentreprise.formation.models;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Module {
 
     @Id
     private String id;
     private String name;
-    private LocalDate startTime;
-    private LocalDate endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String description;
 
     public Module() {
@@ -32,19 +32,19 @@ public class Module {
         this.name = name;
     }
 
-    public LocalDate getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDate startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDate getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDate endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
