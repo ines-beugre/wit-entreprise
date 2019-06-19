@@ -4,6 +4,10 @@
     height: auto;
 }
 
+body {
+    margin: 0;
+}
+
 #app {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,6 @@
 #app .wit-picture {
     width: 150px;
     height: 100px;
-
 }
 
 .app-navbar {
