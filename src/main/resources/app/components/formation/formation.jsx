@@ -12,66 +12,87 @@ class Formation extends React.Component {
         this.props.dispatch(getFormation(this.props.match.params.id));
     }
 
+
     render() {
         const {formation, isPending} = this.props;
         const modules = formation.modules;
 
-        console.log('formation', formation);
-        console.log('modules', modules);
+        return (
+            <div className="formation-container">
+                {
+                    isPending ?
+                        <IsPending className="formations-pending"/>
+                        :
+                        <div className="formation">
+                            <div>
+                                <div className="formation-theme-date">
+                                    <div className="formation-theme">{formation.theme}</div>
+                                    <div
+                                        className="formation-date">{moment(formation.date).format('DD MMMM YYYY')} </div>
+                                </div>
+                                <img className="formation-image" src={formation.image}/>
 
-        return(
-          <div className="formation-container">
-              {/*<h3>Détails</h3>*/}
-              {
-                  isPending ?
-                  <IsPending className="formations-pending"/>
-                  :
-                      <div className="formation">
-                          <div >
-                              <div className="formation-theme-date">
-                                  <div className="formation-theme">{formation.theme}</div>
-                                  <div className="formation-date">{moment(formation.date).format('DD MMMM YYYY')} </div>
-                              </div>
-                              <img className="formation-image" src = {formation.image}/>
+                                <div className="formation-modules">
 
-                              <div className="formation-modules">
+                                    {
+                                        modules &&
+                                        modules.map((module) => {
 
-                                  {
-                                      modules &&
-                                      modules.map((module) => {
-                                          return (
-                                              <div key={module.id} className="timeline">
+                                            let i = modules.indexOf(module);
+                                            return (
+                                                <div key={module.id} className="timeline">
 
-                                                  <div  className="container right">
-                                                      <div className="content">
-                                                          <div className="content-hour">
-                                                              <div className="content-start">
-                                                                  {moment(module.startTime).format('LT')}
-                                                              </div>
+                                                    {
+                                                        (i % 2) === 0 ?
+                                                            <div className="container right">
+                                                                <div className="content">
+                                                                    <div className="content-hour">
+                                                                        <div className="content-start">
+                                                                            {moment(module.startTime).format('LT')}
+                                                                        </div>
 
-                                                              <div className="content-end">
-                                                                  {moment(module.endTime).format('LT')}
-                                                              </div>
+                                                                        <div className="content-end">
+                                                                            {moment(module.endTime).format('LT')}
+                                                                        </div>
+                                                                    </div>
 
-                                                          </div>
+                                                                    <div className="content-name">
+                                                                        {module.name}
+                                                                    </div>
 
-                                                          <div className="content-name">
-                                                              {module.name} {" "}
-                                                          </div>
+                                                                </div>
+                                                            </div> :
 
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          )
-                                      })
-                                  }
+                                                            <div className="container left">
+                                                                <div className="content">
+                                                                    <div className="content-hour">
+                                                                        <div className="content-start">
+                                                                            {moment(module.startTime).format('LT')}
+                                                                        </div>
 
-                              </div>
-                          </div>
+                                                                        <div className="content-end">
+                                                                            {moment(module.endTime).format('LT')}
+                                                                        </div>
+                                                                    </div>
 
-                      </div>
-              }
-          </div>
+                                                                    <div className="content-name">
+                                                                        {module.name}
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                    }
+                                                </div>
+                                            )
+                                        })
+                                    }
+
+                                </div>
+                            </div>
+
+                        </div>
+                }
+            </div>
         )
     }
 

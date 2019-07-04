@@ -6,7 +6,6 @@ export function list() {
 };
 
 export function getById(id) {
-    console.log("id",id);
     return fetch(url + "/" + id, {
         method: 'GET',
     })
