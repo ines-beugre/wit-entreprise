@@ -58,7 +58,6 @@ export default class Main extends React.Component {
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/formations" component={Formations}/>
                             <Route exact path="/formation/:id" component={Formation}/>
-
                         </Route>
                     </main>
                     <footer>
