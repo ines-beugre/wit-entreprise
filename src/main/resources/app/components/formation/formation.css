@@ -18,6 +18,10 @@
     flex-direction: row;
 }
 
+.formation-formers-place {
+    margin-top: 10px;
+    font-size: 2vw;
+}
 .formation-theme-date{
     display: flex;
     flex-wrap: wrap;
@@ -58,15 +62,16 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #333333;
+    /*background-color: #333333;*/
 }
 
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
     content: '';
     position: absolute;
-    width: 6px;
-    background-color: #FF9F55;
+    width: 2px;
+    /*background-color: #FF9F55;*/
+    background-color: #FFA500;
     top: 0;
     bottom: 0;
     left: 50%;
@@ -90,9 +95,10 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    right: -10px;
+    right: -8px;
     background-color: white;
-    border: 4px solid #FF9F55;
+    /*border: 4px solid #FF9F55;*/
+    border: 4px solid #FFA500;
     top: 21px;
     border-radius: 50%;
     z-index: 1;
@@ -138,7 +144,7 @@
 
 /* Fix the circle for containers on the right side */
 .right::after {
-    left: -10px;
+    left: -12px;
 }
 
 /* The actual content */
@@ -159,7 +165,8 @@
 }
 
 .content-end {
-    color: #FF9F55;
+    /*color: #FF9F55;*/
+    color: #FFA500;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -174,7 +181,6 @@
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
-
     }
 
     /* Make sure that all arrows are pointing leftwards */
@@ -187,11 +193,61 @@
 
     /* Make sure all circles are at the same spot */
     .left::after, .right::after {
-        left: 21px;
+        left: 19px;
     }
 
     /* Make all right containers behave like the left ones */
     .right {
         left: 0%;
     }
+}
+
+/**/
+
+.formation-footer{
+    background-color: #FFA500;
+    margin-top: 10px;
+    height: 50px;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.formation-footer-content {
+    margin: auto;
+    font-size: 10px;
+    display: flex;
+}
+
+.formation-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.formation-price {
+    margin-right: 10px;
+}
+
+.formation-transfert {
+    display: flex;
+}
+
+.formation-transfert-phone {
+   margin: auto 10px 10px -8px
+   /*margin: auto -8px;*/
+   /*margin: auto;*/
+}
+
+.formation-phone {
+    margin: auto;
+    display: flex;
+}
+
+.fas.fa-map-marker-alt {
+    /*color: #FF8C00;*/
+    color: #FFA500;
+    margin-right: 15px;
 }

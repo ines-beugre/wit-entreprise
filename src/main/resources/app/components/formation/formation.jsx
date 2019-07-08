@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getFormation, getFormations} from "../../redux/formations/dispatch";
+import {getFormation} from "../../redux/formations/dispatch";
 import IsPending from "../isPending/isPending";
+import orangeMoney from "../../images/orange-money.png";
 import moment from 'moment';
 import 'moment/locale/fr';
 import './formation.css'
@@ -16,6 +17,7 @@ class Formation extends React.Component {
     render() {
         const {formation, isPending} = this.props;
         const modules = formation.modules;
+        const formers = formation.formers;
 
         return (
             <div className="formation-container">
@@ -25,11 +27,13 @@ class Formation extends React.Component {
                         :
                         <div className="formation">
                             <div>
+
                                 <div className="formation-theme-date">
                                     <div className="formation-theme">{formation.theme}</div>
                                     <div
                                         className="formation-date">{moment(formation.date).format('DD MMMM YYYY')} </div>
                                 </div>
+
                                 <img className="formation-image" src={formation.image}/>
 
                                 <div className="formation-modules">
@@ -78,7 +82,6 @@ class Formation extends React.Component {
                                                                     <div className="content-name">
                                                                         {module.name}
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                     }
@@ -86,16 +89,65 @@ class Formation extends React.Component {
                                             )
                                         })
                                     }
+                                </div>
+
+                                <div className="formation-formers-place">
+                                    {
+                                        formers &&
+                                            formers.map((former, id) => {
+
+                                                console.log('formateur', former);
+                                                return (
+                                                    <div key= {id} className="formation-formers">
+                                                        <label>Formateur: </label>{former.firstname} {former.lastname}{", "}
+                                                        {former.job}
+                                                    </div>
+                                                )
+                                            })
+                                    }
+                                    <div className="formation-place">
+                                        <div>
+                                            <i className="fas fa-map-marker-alt"></i>
+                                            {formation.place}
+                                        </div>
+                                    </div>
+
 
                                 </div>
-                            </div>
 
+                                <div className="formation-footer">
+                                    <div className="formation-footer-content">
+
+                                        <img className="formation-logo" src={formation.logo}/>
+
+                                        <div className="formation-price">
+                                            <label className="">Entrée </label>
+                                            <div className="">{formation.price}</div>
+                                        </div>
+
+                                        <div className="formation-transfert">
+                                            <img className="formation-logo" src={orangeMoney}/>
+                                            <div className="formation-transfert-phone">{formation.transfertPhone}</div>
+                                        </div>
+
+                                        <div className="formation-phone-email">
+                                            <div className="formation-phone">
+                                                <label className="">Contact: </label>
+                                                <div className="">{formation.phone}</div>
+                                            </div>
+
+                                            <div className="email">{formation.email}</div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                 }
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
