@@ -3,6 +3,7 @@ import 'dotenv';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './pages/home/home';
 import Formations from './components/formations/formations';
+import Formation from './components/formation/formation';
 import './index.css';
 import logoWit from './images/wit.png';
 
@@ -56,8 +57,7 @@ export default class Main extends React.Component {
                         <Route>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/formations" component={Formations}/>
-                            {/*<Route exact path="/formation/:id" component={Formation}/>*/}
-
+                            <Route exact path="/formation/:id" component={Formation}/>
                         </Route>
                     </main>
                     <footer>

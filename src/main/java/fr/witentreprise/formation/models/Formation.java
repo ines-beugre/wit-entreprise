@@ -2,8 +2,7 @@ package fr.witentreprise.formation.models;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Formation {
@@ -11,23 +10,24 @@ public class Formation {
     @Id
     private String id;
     private String name;
-    private LocalDate date;
+    private LocalDateTime date;
     private String place;
     private String price;
     private String target;
-    private LocalDate deadline;
+    private String email;
+    private LocalDateTime deadline;
     private List<Person> formers;
     private List<Person> suscribers;
     private String goals;
     private String description;
     private List<Module> modules;
     private String theme;
+    private String phone;
+    private String transfertPhone;
     private String image;
+    private String logo;
 
     public Formation() {
-        formers = new ArrayList<>();
-        suscribers = new ArrayList<>();
-        modules = new ArrayList<>();
     }
 
     public String getId() {
@@ -46,11 +46,11 @@ public class Formation {
         this.name = name;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -78,11 +78,19 @@ public class Formation {
         this.target = target;
     }
 
-    public LocalDate getDeadline() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
 
@@ -134,12 +142,36 @@ public class Formation {
         this.theme = theme;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getTransfertPhone() {
+        return transfertPhone;
+    }
+
+    public void setTransfertPhone(String transfertPhone) {
+        this.transfertPhone = transfertPhone;
+    }
+
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     @Override
@@ -151,6 +183,7 @@ public class Formation {
                 ", place='" + place + '\'' +
                 ", price='" + price + '\'' +
                 ", target='" + target + '\'' +
+                ", email='" + email + '\'' +
                 ", deadline=" + deadline +
                 ", formers=" + formers +
                 ", suscribers=" + suscribers +
@@ -158,7 +191,10 @@ public class Formation {
                 ", description='" + description + '\'' +
                 ", modules=" + modules +
                 ", theme='" + theme + '\'' +
+                ", phone='" + phone + '\'' +
+                ", transfertPhone='" + transfertPhone + '\'' +
                 ", image='" + image + '\'' +
+                ", logo='" + logo + '\'' +
                 '}';
     }
 }

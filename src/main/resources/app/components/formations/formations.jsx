@@ -44,11 +44,8 @@ class Formations extends React.Component{
                 </div>
 
             </div>
-
-
         )
     }
-
 }
 
 

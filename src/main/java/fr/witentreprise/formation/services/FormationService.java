@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FormationService {
@@ -24,5 +25,15 @@ public class FormationService {
     public List<Formation> list() {
         LOGGER.info("List all Formations");
         return this.formationRepository.findAll();
+    }
+
+    /**
+     * Get a formation
+     * @param id
+     * @return a formation
+     */
+    public Optional<Formation> getById(String id) {
+        LOGGER.info("Get a formation");
+        return this.formationRepository.findById(id);
     }
 }

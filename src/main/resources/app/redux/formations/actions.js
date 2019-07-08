@@ -1,5 +1,11 @@
 import types from "./types";
 
+const setFormation = (formation) =>
+    ({
+        type: types.SET_FORMATION,
+        formation
+    });
+
 const setFormations = (formations) =>
     ({
         type: types.SET_FORMATIONS,
@@ -13,6 +19,7 @@ const setPending = (isPending = false) =>
     })
 
 export default {
+    setFormation,
     setFormations,
     setPending
 }

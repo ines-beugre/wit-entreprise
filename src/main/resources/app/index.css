@@ -4,6 +4,10 @@
     height: auto;
 }
 
+body {
+    margin: 0;
+}
+
 #app {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,6 @@
 #app .wit-picture {
     width: 150px;
     height: 100px;
-
 }
 
 .app-navbar {
@@ -27,7 +30,7 @@
     width: 100%;
 }
 
-.sticky + .content {
+.sticky + main {
     padding-top: 102px;
 }
 
@@ -49,9 +52,6 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-
-
-
 }
 
 .app-navbar li a:hover:not(.active) {
@@ -59,7 +59,7 @@
 }
 
 main {
-    /*margin-top: 150px;*/
+    margin-top: 15px;
     overflow: scroll;
 
 }
