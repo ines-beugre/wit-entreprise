@@ -32,11 +32,11 @@
     font-weight: bold;
 }
 
-.image {
-    width: 250px;
-    height: 250px;
-}
-
 .formations a {
     text-decoration: none;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
 }

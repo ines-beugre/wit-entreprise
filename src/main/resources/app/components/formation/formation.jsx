@@ -29,12 +29,16 @@ class Formation extends React.Component {
                             <div>
 
                                 <div className="formation-theme-date">
-                                    <div className="formation-theme">{formation.theme}</div>
+                                    <div className="formation-name">{formation.name}</div>
                                     <div
                                         className="formation-date">{moment(formation.date).format('DD MMMM YYYY')} </div>
                                 </div>
 
                                 <img className="formation-image" src={formation.image}/>
+
+                                <div className="formation-theme">
+                                    <label>Thème:</label> <span>{formation.theme}</span>
+                                </div>
 
                                 <div className="formation-modules">
 
@@ -94,16 +98,16 @@ class Formation extends React.Component {
                                 <div className="formation-formers-place">
                                     {
                                         formers &&
-                                            formers.map((former, id) => {
+                                        formers.map((former, id) => {
 
-                                                console.log('formateur', former);
-                                                return (
-                                                    <div key= {id} className="formation-formers">
-                                                        <label>Formateur: </label>{former.firstname} {former.lastname}{", "}
-                                                        {former.job}
-                                                    </div>
-                                                )
-                                            })
+                                            console.log('formateur', former);
+                                            return (
+                                                <div key={id} className="formation-formers">
+                                                    <label>Formateur: </label>{former.firstname} {former.lastname}{", "}
+                                                    {former.job}
+                                                </div>
+                                            )
+                                        })
                                     }
                                     <div className="formation-place">
                                         <div>
@@ -112,6 +116,36 @@ class Formation extends React.Component {
                                         </div>
                                     </div>
 
+                                </div>
+
+                                <div className="formation-goals-description">
+
+                                    <div className="formation-goals">
+                                        <label>Objectifs:</label>
+                                        <span>{formation.goals}</span>
+                                    </div>
+
+                                    <div className="formation-description">
+                                        <label>Description: </label>
+                                        <span>{formation.goals}</span>
+                                    </div>
+
+                                </div>
+
+                                <div className="formation-target-deadline">
+                                    <div className="formation-target">
+                                        <label>Public cible: </label>
+                                        <span>{formation.target}</span>
+
+                                    </div>
+
+                                    <div className="formation-deadline">
+                                        <label>Date limite d'inscription: </label>
+                                        <span>{moment(formation.deadline).format('LL')}</span>
+                                        {/*{moment(module.startTime).format('LT')}*/}
+
+
+                                    </div>
 
                                 </div>
 
