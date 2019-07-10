@@ -4,10 +4,14 @@
 
 .formations h1 {
     font-size: 3vw;
+    font-family: "Avenir Next bold", sans-serif;
+    /*font-family: "system-ui, -apple-system ", sans-serif;*/
+    color: #383D44;
+
 }
 
 .formations-pending {
-    color: 	#FF7F50;
+    color: 	#F1910C;
 }
 
 .liste-formations {
@@ -22,8 +26,10 @@
 }
 
 .ligne-formation span{
-    font-size: 2vw;
-    color: 	#FF8C00;
+    font-size: calc(12px + 0.4vw);
+    color: 	#F1910C;
+    font-family: "Avenir Next bold", sans-serif;
+    font-weight: bold;
 }
 
 .image {

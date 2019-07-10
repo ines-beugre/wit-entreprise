@@ -6,7 +6,6 @@
 
 body {
     margin: 0;
-    font-family: "system-ui, -apple-system ", sans-serif !important;
 }
 
 #app {
@@ -53,8 +52,10 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: "system-ui, -apple-system ", sans-serif;
+    font-size: 16px;
+    /*font-family: "system-ui, -apple-system ", sans-serif;*/
     /*font-family: "Avenir Next bold", sans-serif;*/
+    font-family: "Times", sans-serif;
 }
 
 .app-navbar li a:hover:not(.active) {
