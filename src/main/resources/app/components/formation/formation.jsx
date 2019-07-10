@@ -99,8 +99,6 @@ class Formation extends React.Component {
                                     {
                                         formers &&
                                         formers.map((former, id) => {
-
-                                            console.log('formateur', former);
                                             return (
                                                 <div key={id} className="formation-formers">
                                                     <label>Formateur: </label>{former.firstname} {former.lastname}{", "}
@@ -121,7 +119,7 @@ class Formation extends React.Component {
                                 <div className="formation-goals-description">
 
                                     <div className="formation-goals">
-                                        <label>Objectifs:</label>
+                                        <label>Objectifs: </label>
                                         <span>{formation.goals}</span>
                                     </div>
 
@@ -142,9 +140,27 @@ class Formation extends React.Component {
                                     <div className="formation-deadline">
                                         <label>Date limite d'inscription: </label>
                                         <span>{moment(formation.deadline).format('LL')}</span>
-                                        {/*{moment(module.startTime).format('LT')}*/}
+                                    </div>
 
+                                </div>
 
+                                <div className="formation-suscribers">
+                                    <label>Personnes inscrites: </label>
+                                    <div>
+                                        {
+                                            console.log("suscribers: ", formation.suscribers)
+
+                                        }
+                                        {
+                                            formation.suscribers &&
+                                                formation.suscribers.map((suscriber) => {
+                                                    return (
+                                                        <div key = {suscriber.id} className="formation-suscriber">
+                                                            {suscriber.firstname} {suscriber.lastname}
+                                                        </div>
+                                                    )
+                                                })
+                                        }
                                     </div>
 
                                 </div>

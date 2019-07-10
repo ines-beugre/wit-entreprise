@@ -253,7 +253,10 @@
     margin-right: 15px;
 }
 
-.formation-theme, .formation-goals-description, .formation-target-deadline {
+.formation-theme,
+.formation-goals-description,
+.formation-target-deadline,
+.formation-suscribers {
     font-size: calc(12px + 0.4vw);
     margin-top: 10px;
     margin-bottom: 10px;
@@ -263,20 +266,23 @@
     color: #FFA500;
 }
 
-
-.formation-goals-description, .formation-target-deadline {
+.formation-goals-description,
+.formation-target-deadline {
     display: flex;
     flex-direction:row ;
     text-align: justify;
     justify-content: space-evenly;
 }
 
-.formation-goals-description span, .formation-target-deadline span {
-    text-transform: none;
+.formation-goals-description label,
+.formation-target-deadline label,
+.formation-suscribers label {
+    color: #FFA500;
 }
 
-.formation-goals-description label, .formation-target-deadline label {
-    color: #FFA500;
+.formation-goals-description span,
+.formation-target-deadline span {
+    text-transform: none;
 }
 
 .formation-goals,
@@ -286,5 +292,8 @@
     margin-left: 10px;
     margin-right: 10px;
     font-size: calc(8px + 0.4vw);
+}
 
+.formation-suscriber {
+    text-transform: capitalize;
 }
