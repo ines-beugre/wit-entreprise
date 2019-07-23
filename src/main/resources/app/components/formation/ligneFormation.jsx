@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-
+import moment from 'moment';
+import 'moment/locale/fr';
 
 const LigneFormation = ({formation}) => {
 
@@ -13,7 +14,7 @@ const LigneFormation = ({formation}) => {
                 </div>
 
                 <div className="formations-content">
-                    <span className="capitalize">{formation.name}</span>
+                    <div className="formations-name">{formation.name}</div>
                 </div>
 
             </Link>

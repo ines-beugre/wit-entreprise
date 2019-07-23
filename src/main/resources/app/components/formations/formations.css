@@ -7,7 +7,6 @@
     font-family: "Avenir Next bold", sans-serif;
     /*font-family: "system-ui, -apple-system ", sans-serif;*/
     color: #383D44;
-
 }
 
 .formations-pending {
@@ -25,11 +24,8 @@
     margin: 10px 20px 20px 20px;
 }
 
-.ligne-formation span{
-    font-size: calc(12px + 0.4vw);
-    color: 	#F1910C;
-    font-family: "Avenir Next bold", sans-serif;
-    font-weight: bold;
+.ligne-formation {
+    /*font-weight: bold;*/
 }
 
 .formations a {
@@ -39,4 +35,19 @@
 .image {
     width: 200px;
     height: 200px;
+}
+
+.formations-content {
+    /*background-color: lightgray;*/
+    color: #383D44;
+
+
+
+}
+
+.ligne-formation .formations-content .formations-name {
+    font-family: "Avenir Next bold", sans-serif;
+    font-size: calc(12px + 0.4vw);
+    color: 	#F1910C;
+    text-transform: capitalize;
 }

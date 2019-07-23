@@ -96,12 +96,13 @@ class Formation extends React.Component {
                                 </div>
 
                                 <div className="formation-formers-place">
+                                    <label>Formateur(s): </label>
                                     {
                                         formers &&
                                         formers.map((former, id) => {
                                             return (
                                                 <div key={id} className="formation-formers">
-                                                    <label>Formateur: </label>{former.firstname} {former.lastname}{", "}
+                                                  {former.firstname} {former.lastname}{", "}
                                                     {former.job}
                                                 </div>
                                             )
@@ -147,10 +148,6 @@ class Formation extends React.Component {
                                 <div className="formation-suscribers">
                                     <label>Personnes inscrites: </label>
                                     <div>
-                                        {
-                                            console.log("suscribers: ", formation.suscribers)
-
-                                        }
                                         {
                                             formation.suscribers &&
                                                 formation.suscribers.map((suscriber) => {
