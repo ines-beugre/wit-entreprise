@@ -52,6 +52,9 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 16px;
+    /*font-family: "system-ui, -apple-system ", sans-serif;*/
+    /*font-family: "Avenir Next bold", sans-serif;*/
 }
 
 .app-navbar li a:hover:not(.active) {
@@ -61,7 +64,6 @@ body {
 main {
     margin-top: 15px;
     overflow: scroll;
-
 }
 span {
     text-transform: capitalize;

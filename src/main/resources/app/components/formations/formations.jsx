@@ -25,7 +25,7 @@ class Formations extends React.Component{
 
         return(
             <div className="formations">
-                    <h1>Programme de formations</h1>
+                    <h1>Liste de formations</h1>
                 <div className="seach-bar">
 
                 </div>
