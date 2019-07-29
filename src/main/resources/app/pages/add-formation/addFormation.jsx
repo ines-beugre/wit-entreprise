@@ -51,9 +51,14 @@ export default class AddFormation extends Component {
         // console.log("image", reader.readAsDataURL(files[0]))
     };
 
+    addFormation = () => {
+        console.log("ajouterrr");
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         e.target.reset();
+        this.addFormation();
     };
 
     render() {
@@ -169,11 +174,15 @@ export default class AddFormation extends Component {
 
                         <div className="add-formation-footer">
 
-                            <div>
-                                <label>
-                                    <img className="formation-logo" src={formation.logo}/>
-                                </label>
+                            <div className="">
+                                <img
+                                    className="add-formation-logo"
+                                    src={formation.logo}
+                                />
                             </div>
+
+                            {/*<div className="">*/}
+
 
                             <div className="add-formation-price">
                                 <label htmlFor="price">Entrée</label>
@@ -187,16 +196,16 @@ export default class AddFormation extends Component {
                                 />
                             </div>
 
-                            <div className="add-formation-price">
-                                <img className="add-formation-logo" src={orangeMoney}/>
-                                <input
-                                    className="input-price"
-                                    type="file"
-                                    onChange={this.getImage}
-                                    accept="image/*"
-
-                                />
-                            </div>
+                            {/*<div className="add-formation-price">*/}
+                            {/*    <img className="add-formation-logo" src={orangeMoney}/>*/}
+                            {/*    <input*/}
+                            {/*        className="input-price"*/}
+                            {/*        type="file"*/}
+                            {/*        onChange={this.getImage}*/}
+                            {/*        accept="image/*"*/}
+                            {/*        hidden*/}
+                            {/*    />*/}
+                            {/*</div>*/}
 
                             <div className="add-formation-transfert-phone">
                                 <label htmlFor="transfert-phone">Numéro du transfert</label>
@@ -210,20 +219,59 @@ export default class AddFormation extends Component {
                                 />
                             </div>
 
-                            <div className="add-formation-phone-email">
+                            <div className="add-formation-phone">
                                 <label htmlFor="phone">Contacts:</label>
-
                                 <input
                                     id="phone"
                                     className="add-formation-phone"
                                     name="phone"
                                     type="tel"
-                                    placeholder="Numéro de téléphone"
                                     value={formation.phone}
                                     onChange={this.changeInput}
                                 />
                             </div>
+                            <div className="add-formation-email">
+                                <label htmlFor="email">Email:</label>
+                                <input
+                                    id="phone"
+                                    className="add-formation-email"
+                                    name="email"
+                                    type="email"
+                                    value={formation.email}
+                                    onChange={this.changeInput}
+                                />
+                            {/*</div>*/}
+                            </div>
+
+
                         </div>
+
+                        <div className="add-formation-button">
+                            <button type="submit" className="btn btn-valider">
+                                Valider
+                            </button>
+                        </div>
+
+
+                        {/*    export const ConfirmButton = ({callback}) => {*/}
+                        {/*    return (*/}
+                        {/*    <button*/}
+                        {/*    className="btn btn-valider"*/}
+                        {/*    onClick={callback}*/}
+                        {/*    > Valider </button>*/}
+                        {/*    )*/}
+                        {/*}*/}
+
+                        {/*    <div className="buttonEditFicheSerlien">*/}
+                        {/*        {(isCurrentUser && inEdit && isUpdated) && (*/}
+                        {/*            <ConfirmButton callback={this.handleSubmitOnclick}/>*/}
+                        {/*        )}*/}
+                        {/*        {(isCurrentUser && inEdit) && (*/}
+                        {/*            <CancelButton callback={this.handleCancelOnClick}/>*/}
+                        {/*        )}*/}
+                        {/*    </div>*/}
+                        {/*    */}
+
                     </div>
                 </form>
             </div>

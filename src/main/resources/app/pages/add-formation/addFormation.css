@@ -21,7 +21,7 @@
 .add-formation > div > label,
 .add-formation .div-info-formation > label {
     width:250px;
-    min-width:250px;
+    min-width:200px;
     text-align: right;
     margin-right: 5px;
 }
@@ -37,7 +37,7 @@
 }
 
 .add-formation .add-formation-footer {
-    /*flex-wrap: wrap;*/
+    justify-content: space-between;
 
 }
 
@@ -51,9 +51,83 @@
     .add-formation > div > label,
     .add-formation .div-info-formation > label {
         width: 100px;
-        min-width: 150px;
+        min-width: 137px;
         text-align: left;
     }
+
+    .div-info-formation input[type=text] [type=date]{
+        font-family: "Avenir Next bold", sans-serif;
+        color: #383D44;
+        text-transform: capitalize;
+        font-size: 1.0em;
+    }
+}
+
+input,
+textarea
+{
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
+    text-transform: capitalize;
+    font-size: 1.0em;
+}
+
+input[type=date] {
+    text-transform: none;
+}
+
+input:focus,
+textarea:focus {
+    border: 0.07em solid #FFA500;
+    outline: none;
+}
+
+.add-formation-image {
+    width: 50px;
+    height: 50px;
+}
+
+.formation-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.add-formation-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.add-formation-footer > div {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.add-formation-footer .add-formation-logo{
+    margin-right: 0;
+}
+
+.add-formation-footer .add-formation-email{
+    margin-right: 0;
+}
+
+.add-formation-footer .footer {
+    background-color: blue;
+}
+
+.add-formation-button {
+    justify-content: center;
+}
+
+.btn.btn-valider {
+    color: white;
+    background-color: #FFA500;
+    border: #FFA500 4px solid;
+    padding: 2px 22px 3px 22px;
+    width: 104px;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
 }
 /*.add-formation label {*/
 
@@ -108,39 +182,6 @@
 /*    font-size: 1.0em;*/
 /*}*/
 
-/*.div-info-formation input[type=date] {*/
-
-/*    max-width: 130px;*/
-/*}*/
-
-
-/*input.input-name:focus,*/
-/*input.input-date:focus {*/
-/*    border: 0.07em solid #FFA500;*/
-/*    outline: none;*/
-/*}*/
-
-/*.div-info-date {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-around;*/
-/*}*/
-
-.add-formation-image {
-    width: 50px;
-    height: 50px;
-}
-
-.formation-logo {
-    width: 30px;
-    height: 30px;
-
-}
-
-.add-formation-logo {
-    width: 30px;
-    height: 30px;
-}
 
 
 
