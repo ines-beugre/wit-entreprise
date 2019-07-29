@@ -1,0 +1,146 @@
+.add-formation {
+    margin-top: 30px;
+    font-size: calc(12px + 0.4vw);
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+}
+
+.add-formation > div {
+    width : 100%;
+    display:flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.div-info-date > div{
+    margin-bottom: 10px;
+}
+
+.add-formation > div > label,
+.add-formation .div-info-formation > label {
+    width:250px;
+    min-width:250px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.add-formation input,
+.add-formation textarea {
+    width:100%;
+    padding:7px;
+}
+
+.add-formation .div-info-date {
+    flex-wrap: wrap;
+}
+
+.add-formation .add-formation-footer {
+    /*flex-wrap: wrap;*/
+
+}
+
+.add-formation .div-info-formation {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+@media screen and (max-width: 411px){
+    .add-formation > div > label,
+    .add-formation .div-info-formation > label {
+        width: 100px;
+        min-width: 150px;
+        text-align: left;
+    }
+}
+/*.add-formation label {*/
+
+/*}*/
+
+/*.div-info-formation {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.div-info-formation label {*/
+/*    width: 50%;*/
+/*    padding-right: 0;*/
+/*    text-align: left;*/
+
+
+/*}*/
+
+/*.div-info-formation {*/
+/*    margin: 5px 10px 10px 5px;*/
+/*}*/
+
+/*.div-info-formation input {*/
+/*    padding-left: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-right: 10px;*/
+/*    margin-left: 10px;*/
+/*    width: 50%;*/
+/*    height: 2em;*/
+/*    max-height: 2em;*/
+/*    border: 0.07em solid lightgray;*/
+/*    background-color: white;*/
+/*    outline: none;*/
+/*}*/
+
+/*.div-info-date input {*/
+/*    padding-left: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-right: 5px;*/
+/*    margin-left: 5px;*/
+/*    width: 40%;*/
+/*    height: 2em;*/
+/*    max-height: 2em;*/
+/*    border: 0.07em solid lightgray;*/
+/*    background-color: white;*/
+/*    outline: none;*/
+/*}*/
+
+/*.div-info-formation input[type=text] [type=date]{*/
+/*    font-family: "Avenir Next bold", sans-serif;*/
+/*    color: #383D44;*/
+/*    text-transform: capitalize;*/
+/*    font-size: 1.0em;*/
+/*}*/
+
+/*.div-info-formation input[type=date] {*/
+
+/*    max-width: 130px;*/
+/*}*/
+
+
+/*input.input-name:focus,*/
+/*input.input-date:focus {*/
+/*    border: 0.07em solid #FFA500;*/
+/*    outline: none;*/
+/*}*/
+
+/*.div-info-date {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+.add-formation-image {
+    width: 50px;
+    height: 50px;
+}
+
+.formation-logo {
+    width: 30px;
+    height: 30px;
+
+}
+
+.add-formation-logo {
+    width: 30px;
+    height: 30px;
+}
+
+
+

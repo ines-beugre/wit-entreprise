@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './pages/home/home';
 import Formations from './components/formations/formations';
 import Formation from './components/formation/formation';
+import AddFormation from './pages/add-formation/addFormation';
 import './index.css';
 import logoWit from './images/wit.png';
 
@@ -46,8 +47,14 @@ export default class Main extends React.Component {
                                     <Link to={"/formations"}>
                                         Formations
                                     </Link>
-
                                 </li>
+
+                                <li className="nav-item active">
+                                    <Link to="/formation/add">
+                                        Ajout
+                                    </Link>
+                                </li>
+
 
                             </ul>
                         </nav>
@@ -57,9 +64,11 @@ export default class Main extends React.Component {
                         <Route>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/formations" component={Formations}/>
-                            <Route exact path="/formation/:id" component={Formation}/>
+                            <Route exact path="/formations/:id" component={Formation}/>
+                            <Route exact path="/formation/add" component={AddFormation} />
                         </Route>
                     </main>
+
                     <footer>
 
                     </footer>

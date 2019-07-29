@@ -4,7 +4,9 @@ public enum CodeMessage {
 
     //Formation
     XAA("XAA", "Formation is not valid"),
-    XAB("XAB", "Formation'id is not valid");
+    XAB("XAB", "Formation'id is not valid"),
+    XAC("XAC", "Formation name does'nt exist"),
+    XAD("XAC", "Formation date does'nt exist");
 
     //Person
 
