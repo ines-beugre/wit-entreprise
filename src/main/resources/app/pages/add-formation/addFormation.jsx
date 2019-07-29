@@ -110,19 +110,21 @@ export default class AddFormation extends Component {
 
                         </div>
 
-                        <div className="div-info-formation">
-                            <label>
+                        <div className="div-info-formation image">
+                            {/*<label>*/}
                                 <img
                                     className="add-formation-image"
                                     src={formation.image}
                                 />
-                            </label>
-                            <input
-                                className=""
-                                type="file"
-                                onChange={this.getImage}
-                                accept="image/*"
-                            />
+                                <input
+                                    className=""
+                                    type="file"
+                                    onChange={this.getImage}
+                                    accept="image/*"
+                                    hidden
+                                />
+                            {/*</label>*/}
+
                         </div>
 
                         <div className="add-formation-theme">

@@ -27,7 +27,8 @@
 }
 
 .add-formation input,
-.add-formation textarea {
+.add-formation textarea
+{
     width:100%;
     padding:7px;
 }
@@ -47,6 +48,10 @@
     align-items: center;
 }
 
+.div-info-formation.image {
+    justify-content: center;
+}
+
 @media screen and (max-width: 411px){
     .add-formation > div > label,
     .add-formation .div-info-formation > label {
@@ -63,7 +68,8 @@
     }
 }
 
-input,
+input[type=text],
+input[type=date],
 textarea
 {
     border: 1.594px solid #e6e6e6;
@@ -101,6 +107,14 @@ textarea:focus {
 .add-formation-footer > div {
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.add-formation-footer input{
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
+    text-transform: capitalize;
+    font-size: 1.0em;
 }
 
 .add-formation-footer .add-formation-logo{
