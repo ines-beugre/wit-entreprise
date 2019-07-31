@@ -14,7 +14,7 @@ const toastReducer = (state = defaultState, action) => {
         case types.HIDE_TOAST:
             return {
                 ...state,
-                toast: defaultState
+                toast: undefined
             }
         default:
             return state;

@@ -3,6 +3,7 @@ import orangeMoney from "../../images/orange-money.png";
 import './addFormation.css';
 import {connect} from 'react-redux';
 import {addFormation} from "../../redux/formations/dispatch";
+import {sendToast} from "../../redux/toast/dispatch";
 
 const defaultFormation = {
     name: "",
@@ -39,15 +40,6 @@ class AddFormation extends Component {
         console.log(e.target.value);
     };
 
-    handleOnChange = (date) => {
-        const {targetPropName, handleChange} = this.props;
-        let value = "";
-        if(date) {
-            value = moment(date).format('YYYY-MM-DD');
-        }
-        handleChange(targetPropName, value)
-    };
-
     getImage = (e) => {
         const files = e.currentTarget.files;
         const reader = new FileReader();
@@ -59,6 +51,29 @@ class AddFormation extends Component {
         };
         reader.readAsDataURL(files[0]);
     };
+
+    checkDate = (formation) => {
+        if(formation.date > formation.deadline) {
+            console.log("attention");
+            return "La date de la formation doit être inférieure à la date limite d'inscription";
+        }
+        return null;
+    }
+
+    checkForm() {
+        const {formation} = this.state;
+        const {dispatch} = this.props;
+        const error = this.checkDate(formation);
+
+        if(error) {
+            dispatch(
+                sendToast(
+                    "error",
+                    error));
+        } else {
+            this.addFormation();
+        }
+    }
 
     addFormation = () => {
         console.log("ajouterrr");
@@ -76,7 +91,7 @@ class AddFormation extends Component {
     handleSubmit(e) {
         e.preventDefault();
         e.target.reset();
-        this.addFormation();
+        this.checkForm();
     };
 
     render() {
@@ -137,11 +152,10 @@ class AddFormation extends Component {
                                     src={formation.image}
                                 />
                                 <input
-                                    className=""
+                                    className="add-formation-image"
                                     type="file"
                                     onChange={this.getImage}
                                     accept="image/*"
-                                    hidden
                                 />
                             {/*</label>*/}
 
@@ -206,7 +220,6 @@ class AddFormation extends Component {
                             </div>
 
                             {/*<div className="">*/}
-
 
                             <div className="add-formation-price">
                                 <label htmlFor="price">Entrée</label>
