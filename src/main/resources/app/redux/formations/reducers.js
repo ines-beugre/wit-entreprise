@@ -16,7 +16,7 @@ const defaultState = {
         modules: [],
         theme: '',
         phone: '',
-        transfertPhone: '',
+        transfert: '',
         image: '',
         logo: '',
     },

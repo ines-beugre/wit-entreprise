@@ -1,5 +1,5 @@
 .add-formation {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: calc(12px + 0.4vw);
     font-weight: bold;
     display:flex;
@@ -109,7 +109,7 @@ textarea:focus {
     margin-right: 3px;
 }
 
-.add-formation-footer input{
+.add-formation-footer input[type=text]{
     border: 1.594px solid #e6e6e6;
     color: #383D44;
     font-family: "Avenir Next bold", sans-serif;

@@ -5,7 +5,7 @@ import IsPending from "../isPending/isPending";
 import orangeMoney from "../../images/orange-money.png";
 import moment from 'moment';
 import 'moment/locale/fr';
-import './formation.css'
+import './formation.css';
 
 class Formation extends React.Component {
 

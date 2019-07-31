@@ -1,3 +1,4 @@
+import {csrf} from "./utils";
 const url = "/api/formations";
 
 export function list() {
@@ -12,9 +13,14 @@ export function getById(id) {
         .then(response => response.json());
 }
 
-export function add() {
+export function add(formation) {
     return fetch(url, {
         method: 'POST',
+        body: JSON.stringify(formation),
+        headers: {
+            'Content-Type': 'application/json',
+            ...csrf(),
+        }
     })
         .then(response => response.json());
 }
