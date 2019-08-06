@@ -7,7 +7,7 @@ const LigneFormation = ({formation}) => {
 
     return (
         <div key={formation.id} className="ligne-formation">
-            <Link to={`/formation/${formation.id}`}>
+            <Link to={`/formations/${formation.id}`}>
 
                 <div className="formations-image">
                     <img className="image" src={formation.image}/>

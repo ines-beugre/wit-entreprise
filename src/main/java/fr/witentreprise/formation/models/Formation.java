@@ -2,7 +2,7 @@ package fr.witentreprise.formation.models;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Formation {
@@ -10,12 +10,12 @@ public class Formation {
     @Id
     private String id;
     private String name;
-    private LocalDateTime date;
+    private LocalDate date;
     private String place;
     private String price;
     private String target;
     private String email;
-    private LocalDateTime deadline;
+    private LocalDate deadline;
     private List<Person> formers;
     private List<Person> suscribers;
     private String goals;
@@ -23,7 +23,7 @@ public class Formation {
     private List<Module> modules;
     private String theme;
     private String phone;
-    private String transfertPhone;
+    private String transfert;
     private String image;
     private String logo;
 
@@ -46,11 +46,11 @@ public class Formation {
         this.name = name;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -86,11 +86,11 @@ public class Formation {
         this.email = email;
     }
 
-    public LocalDateTime getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDateTime deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
@@ -150,12 +150,12 @@ public class Formation {
         this.phone = phone;
     }
 
-    public String getTransfertPhone() {
-        return transfertPhone;
+    public String getTransfert() {
+        return transfert;
     }
 
-    public void setTransfertPhone(String transfertPhone) {
-        this.transfertPhone = transfertPhone;
+    public void setTransfert(String transfert) {
+        this.transfert = transfert;
     }
 
     public String getImage() {
@@ -192,7 +192,7 @@ public class Formation {
                 ", modules=" + modules +
                 ", theme='" + theme + '\'' +
                 ", phone='" + phone + '\'' +
-                ", transfertPhone='" + transfertPhone + '\'' +
+                ", transfert='" + transfert + '\'' +
                 ", image='" + image + '\'' +
                 ", logo='" + logo + '\'' +
                 '}';

@@ -8,10 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,6 +45,16 @@ public class FormationController {
         Formation formation = formationService.getById(id)
                 .orElseThrow(() -> new BusinessException("", CodeMessage.XAB.getCode()));
         return ResponseEntity.ok().body(formation);
+    }
 
+    @PostMapping
+    @ApiOperation(httpMethod = "POST",
+        value = "Resource to create a new formation",
+        response = Formation.class,
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        responseContainer = "Object")
+        public ResponseEntity<Formation> add(@RequestBody Formation formation){
+
+        return ResponseEntity.ok().body(formationService.add(formation));
     }
 }
