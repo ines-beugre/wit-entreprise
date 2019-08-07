@@ -24,3 +24,4 @@ export function add(formation) {
     })
         .then(response => response.json());
 }
+
