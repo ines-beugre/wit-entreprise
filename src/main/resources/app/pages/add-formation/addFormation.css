@@ -24,6 +24,7 @@
     min-width:200px;
     text-align: right;
     margin-right: 5px;
+    color: #4D4D4D;
 }
 
 .add-formation input,
@@ -31,6 +32,9 @@
 {
     width:100%;
     padding:7px;
+    font-family: "Avenir Next bold", sans-serif;
+    color: #FFA500;
+    font-size: calc(12px + 0.4vw);
 }
 
 .add-formation .div-info-date {
@@ -52,6 +56,39 @@
     justify-content: center;
 }
 
+.add-formation input[type=text],
+.add-formation input[type=date],
+.add-formation textarea {
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
+    text-transform: capitalize;
+    font-size: 1.0em;
+}
+
+.add-formation input[type=date] {
+    text-transform: none;
+}
+
+.add-formation input:focus,
+.add-formation textarea:focus {
+    border: 0.07em solid #FFA500;
+    outline: none;
+}
+
+.input-search {
+    background: white;
+    border: 1px solid #e6e6e6;
+    font-size: 1em;
+    border-radius: 4px;
+    font-family: "Avenir Next bold", sans-serif;
+    outline: none;
+    width: 70%;
+}
+
+.input-search input:focus{
+    outline: none;
+}
 @media screen and (max-width: 411px){
     .add-formation > div > label,
     .add-formation .div-info-formation > label {
@@ -66,27 +103,6 @@
         text-transform: capitalize;
         font-size: 1.0em;
     }
-}
-
-input[type=text],
-input[type=date],
-textarea
-{
-    border: 1.594px solid #e6e6e6;
-    color: #383D44;
-    font-family: "Avenir Next bold", sans-serif;
-    text-transform: capitalize;
-    font-size: 1.0em;
-}
-
-input[type=date] {
-    text-transform: none;
-}
-
-input:focus,
-textarea:focus {
-    border: 0.07em solid #FFA500;
-    outline: none;
 }
 
 .add-formation-image {

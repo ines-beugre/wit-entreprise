@@ -2,8 +2,7 @@ import types from './types';
 
 const defaultState = {
     filters: {
-        nom: "",
-        theme: "",
+        search: "",
     }
 };
 

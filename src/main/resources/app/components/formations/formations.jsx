@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getFormations} from "../../redux/formations/dispatch";
 import IsPending from '../isPending/isPending';
 import LigneFormation from '../formation/ligneFormation';
+import actions from "../../redux/filters/actions";
 import moment from 'moment';
 import 'moment/locale/fr';
 import './formations.css';
@@ -33,6 +34,15 @@ class Formations extends React.Component{
         return filtered;
     }
 
+    handleSearch = (event) => {
+        const props = this.props;
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        props.dispatch(actions.setFilters({...props.filters, [name]: value}));
+    }
+
     filtersPast = () => {
         const {formations} = this.props;
         const today = moment(Date.now()).format('YYYY-MM-DD');
@@ -46,7 +56,7 @@ class Formations extends React.Component{
     }
 
     render() {
-        const {isPending} = this.props;
+        const {isPending, filters} = this.props;
         const filteredFormations = this.filtersUpcomming();
         const pastFormations = this.filtersPast();
 
