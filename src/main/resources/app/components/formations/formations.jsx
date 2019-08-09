@@ -22,6 +22,15 @@ class Formations extends React.Component{
         this.props.dispatch(getFormations())
     }
 
+    handleSearch = (event) => {
+        const props = this.props;
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        props.dispatch(actions.setFilters({...props.filters, [name]: value}));
+    }
+
     filtersUpcomming = () => {
         const {formations} = this.props;
         const today = moment(Date.now()).format('YYYY-MM-DD');
@@ -34,17 +43,8 @@ class Formations extends React.Component{
         return filtered;
     }
 
-    handleSearch = (event) => {
-        const props = this.props;
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        props.dispatch(actions.setFilters({...props.filters, [name]: value}));
-    }
-
     filtersPast = () => {
-        const {formations} = this.props;
+        const {formations, filters} = this.props;
         const today = moment(Date.now()).format('YYYY-MM-DD');
 
         let filtered = formations
@@ -55,10 +55,13 @@ class Formations extends React.Component{
         return filtered;
     }
 
+
+
     render() {
         const {isPending, filters} = this.props;
         const filteredFormations = this.filtersUpcomming();
         const pastFormations = this.filtersPast();
+
 
         return(
             <div className="formations">
