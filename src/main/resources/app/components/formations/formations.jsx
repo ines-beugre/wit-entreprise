@@ -44,16 +44,28 @@ class Formations extends React.Component {
             formation.critereFilter = 0;
             nombreDeChamp = 0;
 
-            //tester nom et prenom
+            //tester nom de la formation
             if (filters.search && filters.search.length >= 2 && (formation.name)) {
                 nombreDeChamp = nombreDeChamp + 1
                 value = filters.search.split(" ");
 
-                value.forEach(val => {
-                    if (val) {
+                value.forEach(value => {
+                    if (value) {
                         formation.critereFilter = formation.critereFilter + 1
-                        if (formation.name.toUpperCase().includes(val.toUpperCase())) {
+                        if (formation.name.toUpperCase().includes(value.toUpperCase())) {
                             formation.weight = formation.weight + 1
+                        }
+
+                        if(formation.theme.toUpperCase().includes(value.toUpperCase())) {
+                            formation.weight = formation.weight + 1
+                        }
+
+                        if(formation.formers && formation.formers.length > 0){
+                            formation.formers.map(former => {
+                                if(former.firstname && former.firstname.toUpperCase().includes(value.toUpperCase())){
+                                    formation.weight = formation.weight + 1;
+                                }
+                            })
                         }
                     }
                 });
@@ -77,6 +89,8 @@ class Formations extends React.Component {
     render() {
         const {isPending, filters} = this.props;
         const filteredFormations = this.filtered();
+        // console.log("filtered");
+        // console.log("filteredFormations", filteredFormations.map(former => former.firstame));
 
         return (
             <div className="formations">
@@ -117,7 +131,6 @@ const mapStateToProps = (state) => {
         formations: state.formationsReducer.formations,
         isPending: state.formationsReducer.isPending,
         filters: state.filtersReducer.filters
-
     }
 };
 
