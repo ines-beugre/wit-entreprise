@@ -15,7 +15,7 @@ class Formations extends React.Component {
         super(props);
         this.state = {
             filteredFormations: [],
-            filtered: []
+            filtered: [],
         }
     };
 
@@ -35,7 +35,6 @@ class Formations extends React.Component {
         const {filters, formations} = this.props;
         let value;
         let filtered = formations;
-        // let filtered = this.filtersUpcomming();
         const today = moment(Date.now()).format('YYYY-MM-DD');
         let nombreDeChamp;
 
@@ -56,13 +55,13 @@ class Formations extends React.Component {
                             formation.weight = formation.weight + 1
                         }
 
-                        if(formation.theme.toUpperCase().includes(value.toUpperCase())) {
+                        if (formation.theme.toUpperCase().includes(value.toUpperCase())) {
                             formation.weight = formation.weight + 1
                         }
 
-                        if(formation.formers && formation.formers.length > 0){
+                        if (formation.formers && formation.formers.length > 0) {
                             formation.formers.map(former => {
-                                if(former.firstname && former.firstname.toUpperCase().includes(value.toUpperCase())){
+                                if (former.firstname && former.firstname.toUpperCase().includes(value.toUpperCase())) {
                                     formation.weight = formation.weight + 1;
                                 }
                             })
@@ -77,8 +76,9 @@ class Formations extends React.Component {
 
                 return ((formation.critereFilter === formation.weight) && formation.weight !== 0)
             }
-        })
-            .filter(formation => formation.date > today)
+        });
+
+        filtered = filtered.filter(formation => formation.date > today)
             .sort(function (a, b) {
                 return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
             })
@@ -89,8 +89,6 @@ class Formations extends React.Component {
     render() {
         const {isPending, filters} = this.props;
         const filteredFormations = this.filtered();
-        // console.log("filtered");
-        // console.log("filteredFormations", filteredFormations.map(former => former.firstame));
 
         return (
             <div className="formations">
@@ -101,12 +99,14 @@ class Formations extends React.Component {
                         <input
                             id="input-search"
                             className="input-search" type="text"
+                            placeholder="Nom, theme, formateur"
                             name="search"
-                            onChange={this.handleSearch}
                             value={filters.search}
+                            onChange={this.handleSearch}
                         />
                     </div>
                 </div>
+
 
                 <div className="liste-formations">
 

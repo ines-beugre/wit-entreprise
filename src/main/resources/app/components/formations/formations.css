@@ -3,7 +3,9 @@
 }
 
 .formations h1 {
-    font-size: 3vw;
+    /*font-size: 3vw;*/
+    font-size: calc(12px + 0.4vw);
+    margin-top: 21px;
     font-family: "Avenir Next bold", sans-serif;
     /*font-family: "system-ui, -apple-system ", sans-serif;*/
     color: #383D44;
@@ -46,4 +48,16 @@
     font-size: calc(12px + 0.4vw);
     color: 	#F1910C;
     text-transform: capitalize;
+}
+
+.input-search {
+    background: white;
+    border: 1px solid #e6e6e6;
+    font-size: calc(12px + 0.4vw);
+    border-radius: 4px;
+    font-family: "Avenir Next bold", sans-serif;
+    outline: none;
+    width: 70%;
+    height: 34px;
+
 }
