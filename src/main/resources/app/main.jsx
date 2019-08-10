@@ -7,6 +7,7 @@ import Formation from './components/formation/formation';
 import AddFormation from './pages/add-formation/addFormation';
 import './index.css';
 import logoWit from './images/wit.png';
+import Historique from "./components/historique/historique";
 
 export default class Main extends React.Component {
 
@@ -55,6 +56,12 @@ export default class Main extends React.Component {
                                     </Link>
                                 </li>
 
+                                <li className="nav-item active">
+                                    <Link to="/historique">
+                                        Historique
+                                    </Link>
+                                </li>
+
 
                             </ul>
                         </nav>
@@ -66,6 +73,7 @@ export default class Main extends React.Component {
                             <Route exact path="/formations" component={Formations}/>
                             <Route exact path="/formations/:id" component={Formation}/>
                             <Route exact path="/formation/add" component={AddFormation} />
+                            <Route exact path="/historique" component={Historique} />
                         </Route>
                     </main>
 

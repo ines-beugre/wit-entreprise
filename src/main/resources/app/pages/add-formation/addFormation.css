@@ -84,6 +84,8 @@
     font-family: "Avenir Next bold", sans-serif;
     outline: none;
     width: 70%;
+    height: 34px;
+
 }
 
 .input-search input:focus{

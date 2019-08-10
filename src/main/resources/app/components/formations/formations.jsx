@@ -4,9 +4,9 @@ import {getFormations} from "../../redux/formations/dispatch";
 import IsPending from '../isPending/isPending';
 import LigneFormation from '../formation/ligneFormation';
 import actions from "../../redux/filters/actions";
-import moment from 'moment';
-import 'moment/locale/fr';
 import './formations.css';
+import moment from "moment";
+import 'moment/locale/fr';
 import '../../index.css'
 
 class Formations extends React.Component{
@@ -43,24 +43,10 @@ class Formations extends React.Component{
         return filtered;
     }
 
-    filtersPast = () => {
-        const {formations, filters} = this.props;
-        const today = moment(Date.now()).format('YYYY-MM-DD');
-
-        let filtered = formations
-            .filter(formation => formation.date < today)
-            .sort(function (a, b) {
-                return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
-            })
-        return filtered;
-    }
-
-
 
     render() {
         const {isPending, filters} = this.props;
         const filteredFormations = this.filtersUpcomming();
-        const pastFormations = this.filtersPast();
 
 
         return(
@@ -91,20 +77,7 @@ class Formations extends React.Component{
 
                 </div>
 
-                <h2>Liste de formations passées</h2>
 
-                <div className="liste-formations">
-
-                    {
-                        isPending ?
-                            <IsPending className="formations-pending"/> :
-                            pastFormations ?
-                                pastFormations.map((formation) => <LigneFormation key={formation.id} formation={formation} />)
-                                :
-                                <span>Aucune résultat!</span>
-                    }
-
-                </div>
             </div>
         )
     }
