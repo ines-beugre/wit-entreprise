@@ -6,13 +6,6 @@ const setFilters = (filters) =>
         filters
     });
 
-const isPending = (isPending = false) =>
-    ({
-        type: types.SET_PENDING,
-        isPending
-    });
-
 export default {
-    setFilters,
-    isPending
+    setFilters
 }

@@ -33,7 +33,7 @@ class Historique extends React.Component{
     }
 
     render() {
-        const {isPending, filters} = this.props;
+        const {isPending} = this.props;
         const pastFormations = this.filtersPast();
 
         return (

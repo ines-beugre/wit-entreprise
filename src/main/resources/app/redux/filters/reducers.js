@@ -13,11 +13,6 @@ const filtersReducer = (state = defaultState, action) => {
                 ...state,
                 filters: action.filters,
             }
-        case types.SET_PENDING:
-            return {
-               ...state,
-                filters: action.isPending
-            }
         default:
             return state;
     }

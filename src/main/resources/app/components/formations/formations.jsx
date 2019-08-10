@@ -9,12 +9,13 @@ import moment from "moment";
 import 'moment/locale/fr';
 import '../../index.css'
 
-class Formations extends React.Component{
+class Formations extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             filteredFormations: [],
+            filtered: []
         }
     };
 
@@ -27,35 +28,64 @@ class Formations extends React.Component{
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
         props.dispatch(actions.setFilters({...props.filters, [name]: value}));
     }
 
-    filtersUpcomming = () => {
-        const {formations} = this.props;
+    filtered = () => {
+        const {filters, formations} = this.props;
+        let value;
+        let filtered = formations;
+        // let filtered = this.filtersUpcomming();
         const today = moment(Date.now()).format('YYYY-MM-DD');
+        let nombreDeChamp;
 
-        let filtered = formations
+        filtered = filtered.filter(formation => {
+            formation.weight = 0;
+            formation.critereFilter = 0;
+            nombreDeChamp = 0;
+
+            //tester nom et prenom
+            if (filters.search && filters.search.length >= 2 && (formation.name)) {
+                nombreDeChamp = nombreDeChamp + 1
+                value = filters.search.split(" ");
+
+                value.forEach(val => {
+                    if (val) {
+                        formation.critereFilter = formation.critereFilter + 1
+                        if (formation.name.toUpperCase().includes(val.toUpperCase())) {
+                            formation.weight = formation.weight + 1
+                        }
+                    }
+                });
+            }
+
+            if (nombreDeChamp === 0) {
+                return (formation.weight) || !value
+            } else {
+
+                return ((formation.critereFilter === formation.weight) && formation.weight !== 0)
+            }
+        })
             .filter(formation => formation.date > today)
             .sort(function (a, b) {
                 return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
             })
-        return filtered;
-    }
 
+        return filtered;
+    };
 
     render() {
         const {isPending, filters} = this.props;
-        const filteredFormations = this.filtersUpcomming();
+        const filteredFormations = this.filtered();
 
-
-        return(
+        return (
             <div className="formations">
-                    <h1>Liste de formations à venir</h1>
+                <h1>Liste de formations à venir</h1>
 
                 <div className="seach-bar">
                     <div className="div-search">
                         <input
+                            id="input-search"
                             className="input-search" type="text"
                             name="search"
                             onChange={this.handleSearch}
@@ -70,19 +100,17 @@ class Formations extends React.Component{
                         isPending ?
                             <IsPending className="formations-pending"/> :
                             filteredFormations ?
-                                filteredFormations.map((formation) => <LigneFormation key={formation.id} formation={formation} />)
-                            :
-                            <span>Aucune résultat!</span>
+                                filteredFormations.map((formation) => <LigneFormation key={formation.id}
+                                                                                      formation={formation}/>)
+                                :
+                                <span>Aucune résultat!</span>
                     }
 
                 </div>
-
-
             </div>
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {
