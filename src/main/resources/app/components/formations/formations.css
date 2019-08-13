@@ -23,15 +23,10 @@
 }
 
 .ligne-formation {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    height: 200px;
 
-    /*width: 34vw;*/
-    /*background-color: #383D44;*/
     margin: 10px 20px 20px 20px;
-    /*box-shadow: 0 0 30px 0 rgba(160, 160, 160, 0.6)*/
-    box-shadow: 0px 0px 20px 9px rgba(160, 160, 160, 0.6);
+    box-shadow: 0 0 30px 0 rgba(160, 160, 160, 0.6)
+    /*box-shadow: 0px 0px 20px 9px rgba(160, 160, 160, 0.6);*/
 
 
 }
@@ -41,7 +36,7 @@
 }
 
 .image {
-    width: 34vw;
+    width: 300px;
     height: 200px;
 }
 
@@ -73,7 +68,7 @@
 
 @media screen and (max-width: 1350px) and (min-width: 500px) {
     .ligne-formation {
-        width: 34vw;
+        /*width: 34vw;*/
         /*height: 200px;*/
 
     }
