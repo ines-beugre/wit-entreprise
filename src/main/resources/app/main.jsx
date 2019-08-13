@@ -69,7 +69,8 @@ export default class Main extends React.Component {
                     </header>
                     <main>
                         <Route>
-                            <Route exact path="/" component={Home}/>
+                            {/*<Route exact path="/" component={Home}/>*/}
+                            <Route exact path="/" component={Formations}/>
                             <Route exact path="/formations" component={Formations}/>
                             <Route exact path="/formations/:id" component={Formation}/>
                             <Route exact path="/formation/add" component={AddFormation}/>
