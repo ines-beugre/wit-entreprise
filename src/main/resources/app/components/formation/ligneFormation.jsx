@@ -6,21 +6,19 @@ import 'moment/locale/fr';
 const LigneFormation = ({formation}) => {
 
     return (
-        <div key={formation.id} className="ligne-formation">
-            <Link to={`/formations/${formation.id}`}>
-                {/*<div className="ligne-formation-unique">*/}
-                    <div className="formations-image">
-                        <img className="image" src={formation.image}/>
-                    </div>
+        <Link to={`/formations/${formation.id}`}>
+            <div key={formation.id} className="ligne-formation">
+                <div className="formations-image">
+                    <img className="image" src={formation.image}/>
+                </div>
 
-                    <div className="formations-content">
-                        <div className="formations-name">{formation.name}</div>
-                        <div className="formations-date">{formation.date}</div>
-                    </div>
-                {/*</div>*/}
+                <div className="formations-content">
+                    <div className="formations-name">{formation.name}</div>
+                    <div className="formations-date">{formation.date}</div>
+                </div>
 
-            </Link>
-        </div>
+            </div>
+        </Link>
     )
 };
 
