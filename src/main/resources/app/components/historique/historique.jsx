@@ -38,7 +38,7 @@ class Historique extends React.Component{
 
         return (
             <div className="historique">
-                <h2>Liste de formations passées</h2>
+                <h1>Liste de formations passées</h1>
 
                 <div className="liste-formations">
 
