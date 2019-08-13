@@ -99,7 +99,7 @@ class Formations extends React.Component {
                         <input
                             id="input-search"
                             className="input-search" type="text"
-                            placeholder="Nom, theme, formateur"
+                            placeholder="Nom, thème, formateur"
                             name="search"
                             value={filters.search}
                             onChange={this.handleSearch}
