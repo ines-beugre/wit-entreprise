@@ -23,11 +23,20 @@
 }
 
 .ligne-formation {
+    display: flex;
+    flex-direction: row;
+
+    width: 34vw;
+    background-color: #383D44;
     margin: 10px 20px 20px 20px;
 }
 
 .ligne-formation {
     /*font-weight: bold;*/
+}
+
+.ligne-formation-unique{
+
 }
 
 .formations a {
