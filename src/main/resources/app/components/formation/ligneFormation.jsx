@@ -15,7 +15,6 @@ const LigneFormation = ({formation}) => {
                 <div className="formations-content">
                     <div className="formations-name">{formation.name}</div>
                     <div className="formations-date">{moment(formation.date).format('DD-MM-YYYY')}</div>
-                    {/*{moment(module.startTime).format('LT')}*/}
 
                 </div>
 

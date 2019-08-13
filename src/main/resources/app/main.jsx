@@ -14,10 +14,10 @@ export default class Main extends React.Component {
     componentDidMount() {
         const header = document.getElementById("myHeader");
         const sticky = header.offsetTop;
-        window.onscroll =  this.scroll(header, sticky);
+        window.onscroll = this.scroll(header, sticky);
     }
 
-    scroll (header, sticky) {
+    scroll(header, sticky) {
         return () => {
             if (window.pageYOffset > sticky) {
                 header.classList.add("sticky");
@@ -31,49 +31,49 @@ export default class Main extends React.Component {
         return (
             <div id="body">
                 <Router>
+
                     <header>
                         <img className="wit-picture"
                              alt="Logo Wit"
                              src={logoWit}/>
 
-                        <nav className="app-navbar" id="myHeader">
-                            <ul className="navbar-nav">
-                                <li className="nav-item active">
-                                    <Link to="/" className="nav-link">
-                                        Accueil
-                                    </Link>
-                                </li>
+                        <div className="dropdown">
+                            <nav className="app-navbar" id="myHeader">
+                                <ul className="navbar-nav">
+                                    {/*<li className="nav-item active">*/}
+                                    {/*    <Link to="/" className="nav-link">*/}
+                                    {/*        Accueil*/}
+                                    {/*    </Link>*/}
+                                    {/*</li>*/}
 
-                                <li className="nav-item active">
-                                    <Link to={"/formations"}>
-                                        Formations
-                                    </Link>
-                                </li>
+                                    <li className="nav-item active">
+                                        <Link to={"/formations"}>
+                                            Formations
+                                        </Link>
+                                    </li>
 
-                                <li className="nav-item active">
-                                    <Link to="/formation/add">
-                                        Ajout
-                                    </Link>
-                                </li>
+                                    <li className="nav-item active">
+                                        <Link to="/formation/add">
+                                            Ajout
+                                        </Link>
+                                    </li>
 
-                                <li className="nav-item active">
-                                    <Link to="/historique">
-                                        Historique
-                                    </Link>
-                                </li>
-
-
-                            </ul>
-                        </nav>
+                                    <li className="nav-item active">
+                                        <Link to="/historique">
+                                            Historique
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </header>
-
                     <main>
                         <Route>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/formations" component={Formations}/>
                             <Route exact path="/formations/:id" component={Formation}/>
-                            <Route exact path="/formation/add" component={AddFormation} />
-                            <Route exact path="/historique" component={Historique} />
+                            <Route exact path="/formation/add" component={AddFormation}/>
+                            <Route exact path="/historique" component={Historique}/>
                         </Route>
                     </main>
 
