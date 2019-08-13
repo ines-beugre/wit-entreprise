@@ -2,8 +2,7 @@ import types from './types';
 
 const defaultState = {
     filters: {
-        nom: "",
-        theme: "",
+        search: "",
     }
 };
 
@@ -13,11 +12,6 @@ const filtersReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 filters: action.filters,
-            }
-        case types.SET_PENDING:
-            return {
-               ...state,
-                filters: action.isPending
             }
         default:
             return state;
