@@ -5,14 +5,14 @@ import App from './app';
 
 dotenv.config();
 function addScript() {
-  /*  if(process.env.NODE_ENV === "development"){
+   /* if(process.env.NODE_ENV === "development"){
         if(!process.env.URL_DEV){
             console.log(process.env);
             console.log(process.env.URL_DEV);
             throw new Error("Veuillez spécifier l'url de développement dans le champ Environments (Edits Configurations du watch) comme suit URL_DEV=votreAdresseIP");
         }*/
         let script = document.createElement("script");
-      //script.src = `http://${process.env.URL_DEV}:35729/livereload.js`;
+       // script.src = `http://${process.env.URL_DEV}:35729/livereload.js`;
         script.src = `http://localhost:35729/livereload.js`;
         document.body.appendChild(script);
         script.onload = (loadPage) => {
