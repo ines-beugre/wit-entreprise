@@ -210,19 +210,21 @@ class AddFormation extends Component {
                             </textarea>
                         </div>
 
+                        <div className="add-formation-description">
+                            <label htmlFor="goal">Objectif: </label>
+                            <textarea
+                                id="goals"
+                                name="goals"
+                                className="input-description"
+                                value={formation.goals}
+                                onChange={this.changeInput}>
+                            </textarea>
+                        </div>
+
                         <div className="add-formation-footer">
 
-                            <div className="">
-                                <img
-                                    className="add-formation-logo"
-                                    src={formation.logo}
-                                />
-                            </div>
-
-                            {/*<div className="">*/}
-
                             <div className="add-formation-price">
-                                <label htmlFor="price">Entrée</label>
+                                <label htmlFor="price">Coût de la formation:</label>
                                 <input
                                     id="price"
                                     className="add-formation-price"
@@ -230,23 +232,10 @@ class AddFormation extends Component {
                                     type="number"
                                     value={formation.price}
                                     onChange={this.changeInput}
+                                    min="0"
                                     required
                                 />
                             </div>
-
-                            {/*<div className="add-formation-price">*/}
-                            {/*    <img className="add-formation-logo" src={orangeMoney}/>*/}
-                            {/*    <input*/}
-                            {/*        className="input-price"*/}
-                            {/*        type="file"*/}
-                            {/*        onChange={this.getImage}*/}
-                            {/*        accept="image/*"*/}
-                            {/*        hidden*/}
-                            {/*    />*/}
-                            {/*</div>*/}
-
-
-
 
                             <div className="add-formation-phone">
                                 <label htmlFor="transfert">Contacts:</label>
@@ -262,19 +251,6 @@ class AddFormation extends Component {
                                 />
                             </div>
 
-                            <div className="add-formation-phone">
-                                <label htmlFor="phone">Contacts:</label>
-                                <input
-                                    id="phone"
-                                    className="add-formation-phone"
-                                    name="phone"
-                                    type="tel"
-                                    pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
-                                    value={formation.phone}
-                                    onChange={this.changeInput}
-                                    required
-                                />
-                            </div>
                             <div className="add-formation-email">
                                 <label htmlFor="email">Email:</label>
                                 <input
