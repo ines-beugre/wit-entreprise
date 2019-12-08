@@ -8,6 +8,7 @@ export const getFormations = () => {
         list()
             .then(formations => {
                 dispatch(actions.setFormations(formations));
+                console.log("formation", formations);
                 dispatch(actions.setPending(false));
                 return Promise.resolve();
             })

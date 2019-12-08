@@ -20,7 +20,7 @@ class Formations extends React.Component {
     };
 
     componentDidMount() {
-        this.props.dispatch(getFormations())
+        this.props.dispatch(getFormations());
     }
 
     handleSearch = (event) => {
@@ -78,7 +78,7 @@ class Formations extends React.Component {
             }
         });
 
-        filtered = filtered.filter(formation => formation.date > today)
+        filtered = filtered.filter(formation => formation.date >= today)
             .sort(function (a, b) {
                 return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
             })
@@ -89,6 +89,7 @@ class Formations extends React.Component {
     render() {
         const {isPending, filters} = this.props;
         const filteredFormations = this.filtered();
+        console.log("formations-comp", filteredFormations);
 
         return (
             <div className="formations">
