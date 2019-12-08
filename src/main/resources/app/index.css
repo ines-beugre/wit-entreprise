@@ -62,7 +62,10 @@ body {
 }
 
 main {
-    /*margin-top: 15px;*/
+    margin-top: 15px;
+   /* overflow: scroll;*/
+    overflow: hidden;
+
     /*overflow: scroll;*/
 
     margin-top: 140px;
@@ -78,24 +81,4 @@ header {
 
 span {
     text-transform: capitalize;
-}
-
-.formation-container {
-    margin: 60px auto;
-    width: 80%;
-    background: white;
-    border-radius: 8px;
-    padding: 0.31em 0.937em;
-    font-family: "Avenir Next bold", sans-serif;
-    color: #383D44;
-    font-size: calc(12px + 0.4vw);
-    text-align: center;
-    box-shadow: 0 0 30px 0 rgba(160, 160, 160, 0.6);
-}
-
-@media screen and (max-width: 360px){
-    .app-navbar ul{
-        /*background-color: #FFA500;*/
-    }
-
 }
