@@ -81,7 +81,7 @@ class Formations extends React.Component {
         filtered = filtered.filter(formation => formation.date >= today)
             .sort(function (a, b) {
                 return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
-            })
+            });
 
         return filtered;
     };

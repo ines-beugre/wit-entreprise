@@ -58,7 +58,7 @@ class AddFormation extends Component {
             return "La date de la formation doit être inférieure à la date limite d'inscription";
         }
         return null;
-    }
+    };
 
     checkForm() {
         const {formation} = this.state;
