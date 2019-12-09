@@ -28,7 +28,7 @@ class AddFormation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formation: defaultFormation,
+            formation: {...defaultFormation, module: []},
         }
     }
 
@@ -81,7 +81,7 @@ class AddFormation extends Component {
         const {formation} = this.state;
         dispatch(addFormation(formation))
             .then(() => {
-                this.setState({formation: defaultFormation});
+                this.setState({formation: {...defaultFormation}});
             })
             .catch(error => {
                 console.log("error", error.message);
@@ -95,7 +95,7 @@ class AddFormation extends Component {
     };
 
     render() {
-        let {formation} = this.state;
+        const {formation} = this.state;
         return (
             <div className="formation-container">
 
