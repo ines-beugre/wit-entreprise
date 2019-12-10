@@ -53,7 +53,7 @@ class AddFormation extends Component {
     };
 
     checkDate = (formation) => {
-        if(formation.date > formation.deadline) {
+        if(formation.deadline.trim() !== "" && formation.date > formation.deadline) {
             console.log("attention");
             return "La date de la formation doit être inférieure à la date limite d'inscription";
         }
