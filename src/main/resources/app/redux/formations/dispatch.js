@@ -62,14 +62,18 @@ export const addFormation = (formation) => {
             .then((formation) => {
                 dispatch(actions.setFormation(formation));
                 dispatch(actions.setPending(false));
-                dispatch(sendToast("success", "Formation ajoutée avec succès"));
+                dispatch(sendToast("success", "Formation ajoutée avec succès."));
                 return Promise.resolve();
             })
             .catch(error => {
-                console.log("error", error);
+                console.log("error", error.message);
                 dispatch(actions.setPending(false));
-                dispatch(sendToast("failed", "Erreur lors de l'ajout de la formation: " + error.message));
+                dispatch(sendToast("error", "Erreur lors de l'ajout de la formation: Cette formation existe déjà à la même heure."));
                 return Promise.reject(error);
             })
     }
 }
+
+/*
+dispatch(sendToast("error", "Erreur lors de l'ajout de la formation "));
+*/

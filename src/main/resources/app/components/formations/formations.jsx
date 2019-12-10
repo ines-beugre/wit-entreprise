@@ -7,7 +7,7 @@ import actions from "../../redux/filters/actions";
 import './formations.css';
 import moment from "moment";
 import 'moment/locale/fr';
-import '../../index.css'
+import '../../index.css';
 
 class Formations extends React.Component {
 

@@ -1,7 +1,6 @@
 .toast {
     font-family: 'Futura', sans-serif;
-  /*  color: #fff;*/
-    color: blue;
+    color: #fff;
     text-align: center;
     position: fixed;
     display: flex;

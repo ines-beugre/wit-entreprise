@@ -49,11 +49,9 @@ public class FormationService {
      */
     public Formation add(Formation formation) {
         LOGGER.info("Create a new formation");
-        Optional<Formation> byDate = formationRepository.findByDate(formation.getDate());
-        Optional<Formation> byName = formationRepository.findByName(formation.getName());
-
         if (checkIfFormationExist(formation.getName(), formation.getDate())) {
-            throw new BusinessException("", CodeMessage.XAD.getCode());
+            LOGGER.info("NO CREATION");
+           return null;
         } else {
             return formationRepository.save(formation);
         }
@@ -67,7 +65,6 @@ public class FormationService {
      */
     public boolean checkIfFormationExist(String name, LocalDate date) {
         List<Formation> formations = formationRepository.findAll();
-        boolean result;
         LOGGER.info("Checking if formation already exists");
 
         for (Formation formation: formations) {

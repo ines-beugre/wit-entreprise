@@ -4,6 +4,8 @@ import './addFormation.css';
 import {connect} from 'react-redux';
 import {addFormation} from "../../redux/formations/dispatch";
 import {sendToast} from "../../redux/toast/dispatch";
+import moment from "moment";
+import 'moment/locale/fr';
 
 const defaultFormation = {
     name: "",
@@ -53,6 +55,8 @@ class AddFormation extends Component {
     };
 
     checkDate = (formation) => {
+        const today = moment(Date.now()).format('YYYY-MM-DD');
+
         if(formation.deadline.trim() !== "" && formation.date > formation.deadline) {
             console.log("attention");
             return "La date de la formation doit être inférieure à la date limite d'inscription";
