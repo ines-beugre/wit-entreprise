@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -45,6 +46,16 @@ public class FormationController {
         Formation formation = formationService.getById(id)
                 .orElseThrow(() -> new BusinessException("", CodeMessage.XAB.getCode()));
         return ResponseEntity.ok().body(formation);
+    }
+
+    @PostMapping(value = "/exist/{name}/{date}")
+    @ApiOperation(httpMethod = "POST",
+            value = "Resource to check if a formation exists",
+            response = Formation.class,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            responseContainer = "Boolean")
+    public boolean checkIfFormationExists(@PathVariable("name") String name, @PathVariable("date") LocalDate date) {
+        return this.formationService.checkIfFormationExist(name, date);
     }
 
     @PostMapping

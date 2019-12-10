@@ -8,8 +8,10 @@ import AddFormation from './pages/add-formation/addFormation';
 import './index.css';
 import logoWit from './images/wit.png';
 import Historique from "./components/historique/historique";
+import {connect} from "react-redux";
+import Toast from './components/toast/toast.jsx';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
 
     componentDidMount() {
         const header = document.getElementById("myHeader");
@@ -28,6 +30,7 @@ export default class Main extends React.Component {
     }
 
     render() {
+        const { dispatch, toast} = this.props;
         return (
             <div id="body">
                 <Router>
@@ -67,6 +70,15 @@ export default class Main extends React.Component {
                             </nav>
                         </div>
                     </header>
+
+                    {
+                        toast &&
+                            <Toast
+                                type={toast.type} message={toast.message} timeout={toast.timeout}
+                                closeCallback={toast.closeCallback}
+                                dispatch={dispatch}
+                            />
+                    }
                     <main>
                         <Route>
                             {/*<Route exact path="/" component={Home}/>*/}
@@ -86,3 +98,11 @@ export default class Main extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        toast: state.toastReducer.toast,
+    }
+}
+
+export default connect(mapStateToProps)(Main);

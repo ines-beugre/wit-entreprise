@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,13 +52,29 @@ public class FormationService {
         Optional<Formation> byDate = formationRepository.findByDate(formation.getDate());
         Optional<Formation> byName = formationRepository.findByName(formation.getName());
 
-        if(byName.isPresent() && byDate.isPresent()) {
+        if (checkIfFormationExist(formation.getName(), formation.getDate())) {
             throw new BusinessException("", CodeMessage.XAD.getCode());
         } else {
-             return formationRepository.save(formation);
+            return formationRepository.save(formation);
         }
     }
 
+    /**
+     * Check if formation already exists
+     * @param name
+     * @param date
+     * @return
+     */
+    public boolean checkIfFormationExist(String name, LocalDate date) {
+        List<Formation> formations = formationRepository.findAll();
+        boolean result;
+        LOGGER.info("Checking if formation already exists");
 
-
+        for (Formation formation: formations) {
+            if (name.equals(formation.getName()) && date.equals(formation.getDate())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

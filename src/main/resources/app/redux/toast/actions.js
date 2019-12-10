@@ -8,7 +8,7 @@ const showToast = (toast) =>
 
 const hideToast = () =>
     ({
-        types: types.HIDE_TOAST
+        type: types.HIDE_TOAST
     })
 
 export default {

@@ -1,6 +1,7 @@
-import {add, getById, list} from '../../services/gestionFormation';
+import {add, checkIfFormationExists, getById, list} from '../../services/gestionFormation';
 import actions from "./actions";
 import {sendToast} from "../toast/dispatch";
+import formation from "../../components/formation/formation";
 
 export const getFormations = () => {
     return (dispatch) => {
@@ -28,6 +29,23 @@ export const getFormation = (id) => {
                 dispatch(actions.setFormation(formation));
                 dispatch(actions.setPending(false));
                 return Promise.resolve();
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch(actions.setPending(false));
+                Promise.reject(error);
+            })
+    }
+};
+
+export const checkFormationExists = (name, date) => {
+    return (dispatch) => {
+        dispatch(actions.setPending(true));
+        return checkIfFormationExists(name, date)
+            .then((formation) => {
+                dispatch(actions.setFormation(formation));
+                dispatch(actions.setPending(false));
+                dispatch(actions)
             })
             .catch(error => {
                 console.log(error);

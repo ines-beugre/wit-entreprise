@@ -7,10 +7,12 @@ import {applyMiddleware, createStore, combineReducers} from 'redux';
 import formationsReducer from "./redux/formations/reducers";
 import filtersReducer from './redux/filters/reducers';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import toastReducer from "./redux/toast/reducers";
 
 const reducer = combineReducers({
     formationsReducer,
-    filtersReducer
+    filtersReducer,
+    toastReducer,
 })
 
 const store = createStore(

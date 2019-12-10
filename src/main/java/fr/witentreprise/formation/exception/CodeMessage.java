@@ -6,7 +6,7 @@ public enum CodeMessage {
     XAA("XAA", "Formation is not valid"),
     XAB("XAB", "Formation'id is not valid"),
     XAC("XAC", "Formation name does'nt exist"),
-    XAD("XAC", "This formation already exists with this name and this date");
+    XAD("XAD", "This formation already exists with this name and this date");
 
     //Person
 

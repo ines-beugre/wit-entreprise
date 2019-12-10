@@ -13,6 +13,12 @@ export function getById(id) {
         .then(response => response.json());
 }
 
+export function checkIfFormationExists(name, date) {
+    return fetch(url, {
+        method: 'POST',
+    })
+        .then(response => response.json());
+}
 export function add(formation) {
     return fetch(url, {
         method: 'POST',
