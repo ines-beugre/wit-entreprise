@@ -108,7 +108,6 @@ class Formations extends React.Component {
                     </div>
                 </div>
 
-
                 <div className="liste-formations">
 
                     {
@@ -118,8 +117,13 @@ class Formations extends React.Component {
                                 filteredFormations.map((formation) => <LigneFormation key={formation.id}
                                                                                       formation={formation}/>)
                                 :
-                                <span>Aucune résultat!</span>
+                                <span>Aucun résultat!</span>
                     }
+                    {
+                        (filteredFormations.length === 0) && <span>Il n'y a pas de formation en ligne pour le moment</span>
+
+                    }
+
 
                 </div>
             </div>

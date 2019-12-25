@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import orangeMoney from "../../images/orange-money.png";
 import './addFormation.css';
+import '../add-former/addFormer';
 import {connect} from 'react-redux';
 import {addFormation} from "../../redux/formations/dispatch";
 import {sendToast} from "../../redux/toast/dispatch";
 import moment from "moment";
 import 'moment/locale/fr';
+import {AddFormer} from "../add-former/addFormer";
 
 const defaultFormation = {
     name: "",
@@ -22,7 +24,19 @@ const defaultFormation = {
     transfert: "",
     phone: "",
     email: "",
+    formers: [],
+    former: {},
     module: []
+}
+
+const defaultFormer = {
+    lastname: "",
+    firstname: "",
+    job: ""
+}
+
+const defaultModule = {
+
 }
 
 class AddFormation extends Component {
@@ -30,7 +44,7 @@ class AddFormation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formation: {...defaultFormation, module: []},
+            formation: {...defaultFormation, former: {}, module: []},
         }
     }
 
@@ -85,7 +99,7 @@ class AddFormation extends Component {
         const {formation} = this.state;
         dispatch(addFormation(formation))
             .then(() => {
-                this.setState({formation: {...defaultFormation}});
+                this.setState({formation: {...defaultFormation, formers: []}});
             })
             .catch(error => {
                 console.log("error", error.message);
@@ -100,6 +114,8 @@ class AddFormation extends Component {
 
     render() {
         const {formation} = this.state;
+        const former = formation.former;
+
         return (
             <div className="formation-container">
 
@@ -224,6 +240,9 @@ class AddFormation extends Component {
                                 onChange={this.changeInput}>
                             </textarea>
                         </div>
+
+                            <AddFormer />
+                       
 
                         <div className="add-formation-footer">
 

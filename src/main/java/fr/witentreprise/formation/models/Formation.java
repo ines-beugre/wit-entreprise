@@ -17,6 +17,7 @@ public class Formation {
     private String email;
     private LocalDate deadline;
     private List<Person> formers;
+    private Person former;
     private List<Person> suscribers;
     private String goals;
     private String description;
@@ -100,6 +101,14 @@ public class Formation {
 
     public void setFormers(List<Person> formers) {
         this.formers = formers;
+    }
+
+    public Person getFormer() {
+        return former;
+    }
+
+    public void setFormer(Person former) {
+        this.former = former;
     }
 
     public List<Person> getSuscribers() {
