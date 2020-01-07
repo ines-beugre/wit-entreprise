@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import formation from "../../components/formation/formation";
 
 const defaultFormer = {
     firstname: "",
@@ -10,7 +11,24 @@ const defaultFormer = {
 
 export class AddFormer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            former: defaultFormer
+        }
+    }
+
+    changeInputFormer = (e) => {
+        let former = this.state.former;
+        former[e.currentTarget.name] = e.currentTarget.value;
+        this.setState({former: former});
+        console.log("former set state", this.state.former);
+    }
+
     render() {
+        const { former } = this.state;
+        console.log("former", former);
+
         return (
             <div className="add-former">
 
@@ -20,33 +38,35 @@ export class AddFormer extends Component {
 
                 <div className="other">
 
-
                     <div className="add-formation-former">
-                        <label>Nom: </label>
+                        <label htmlFor="lastname">Nom: </label>
                         <input
                             className="former-lastname"
-                            name="former-name"
+                            name="lastname"
                             type="text"
-
+                            value={former.lastname}
+                            onChange={this.changeInputFormer}
                         />
                     </div>
                     <div className="add-formation-former">
-                        <label>Prénom: </label>
+                        <label htmlFor="firstname">Prénom: </label>
                         <input
                             className="former-firstname"
-                            name="former-name"
+                            name="firstname"
                             type="text"
-
+                            value={former.firstname}
+                            onChange={this.changeInputFormer}
                         />
                     </div>
 
                     <div className="add-formation-former">
-                        <label>Profession: </label>
+                        <label htmlFor='job'>Profession: </label>
                         <input
                             className="former-job"
-                            name="former-job"
+                            name="job"
                             type="text"
-
+                            value={former.job}
+                            onChange={this.changeInputFormer}
                         />
                     </div>
                 </div>

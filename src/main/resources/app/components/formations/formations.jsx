@@ -113,16 +113,17 @@ class Formations extends React.Component {
                     {
                         isPending ?
                             <IsPending className="formations-pending"/> :
-                            filteredFormations ?
+                            filteredFormations.length > 0 ?
                                 filteredFormations.map((formation) => <LigneFormation key={formation.id}
                                                                                       formation={formation}/>)
                                 :
                                 <span>Aucun résultat!</span>
                     }
-                    {
+
+                   {/* {
                         (filteredFormations.length === 0) && <span>Il n'y a pas de formation en ligne pour le moment</span>
 
-                    }
+                    }*/}
 
 
                 </div>

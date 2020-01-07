@@ -25,18 +25,7 @@ const defaultFormation = {
     phone: "",
     email: "",
     formers: [],
-    former: {},
     module: []
-}
-
-const defaultFormer = {
-    lastname: "",
-    firstname: "",
-    job: ""
-}
-
-const defaultModule = {
-
 }
 
 class AddFormation extends Component {
@@ -44,7 +33,7 @@ class AddFormation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formation: {...defaultFormation, former: {}, module: []},
+            formation: {...defaultFormation, formers: [], module: []},
         }
     }
 
@@ -55,6 +44,7 @@ class AddFormation extends Component {
         console.log("formation set state", this.state.formation);
         console.log(e.target.value);
     };
+
 
     getImage = (e) => {
         const files = e.currentTarget.files;
@@ -114,7 +104,7 @@ class AddFormation extends Component {
 
     render() {
         const {formation} = this.state;
-        const former = formation.former;
+        const formers = formation.formers;
 
         return (
             <div className="formation-container">
@@ -241,8 +231,9 @@ class AddFormation extends Component {
                             </textarea>
                         </div>
 
-                            <AddFormer />
-                       
+                        <AddFormer
+
+                        />
 
                         <div className="add-formation-footer">
 
