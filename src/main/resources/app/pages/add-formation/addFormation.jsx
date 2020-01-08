@@ -28,12 +28,21 @@ const defaultFormation = {
     module: []
 }
 
+const defaultFormer = {
+    firstname: "",
+    lastname: "",
+    job: "",
+    email: "",
+    phone: "",
+}
+
 class AddFormation extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             formation: {...defaultFormation, formers: [], module: []},
+            former: defaultFormer,
         }
     }
 
@@ -41,10 +50,20 @@ class AddFormation extends Component {
         let formation = this.state.formation;
         formation[e.currentTarget.name] = e.currentTarget.value;
         this.setState({formation: formation});
-        console.log("formation set state", this.state.formation);
-        console.log(e.target.value);
+        console.log("formation_set_state", this.state.formation);
     };
 
+    // creer une fonction on qui est passée à l'enfant
+    changeInputAddFormer = (e) => {
+        let formers =  this.state.formation.formers;
+        let former = this.state.former;
+        this.setState({ former: e});
+
+        formers.push(former);
+        this.setState({formers: formers})
+        console.log("former_setstate:", e);
+        console.log("formers:", formers);
+    }
 
     getImage = (e) => {
         const files = e.currentTarget.files;
@@ -232,7 +251,8 @@ class AddFormation extends Component {
                         </div>
 
                         <AddFormer
-
+                            formation = { formation }
+                            changeInputAddFormer = {this.changeInputAddFormer}
                         />
 
                         <div className="add-formation-footer">

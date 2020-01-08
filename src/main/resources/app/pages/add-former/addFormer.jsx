@@ -22,12 +22,12 @@ export class AddFormer extends Component {
         let former = this.state.former;
         former[e.currentTarget.name] = e.currentTarget.value;
         this.setState({former: former});
-        console.log("former set state", this.state.former);
+        this.props.changeInputAddFormer(former);
     }
 
     render() {
+        const formation = this.props;
         const { former } = this.state;
-        console.log("former", former);
 
         return (
             <div className="add-former">
@@ -37,7 +37,11 @@ export class AddFormer extends Component {
                 </div>
 
                 <div className="other">
-
+                    {
+                        formation.formers && formation.formers.map((former) => {
+                            former.lastname
+                        })
+                    }
                     <div className="add-formation-former">
                         <label htmlFor="lastname">Nom: </label>
                         <input
