@@ -13,21 +13,21 @@ export class AddFormer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            former: defaultFormer
-        }
+        // this.state = {
+        //     former: defaultFormer
+        // }
     }
 
     changeInputFormer = (e) => {
-        let former = this.state.former;
+        /*let former = this.state.former;
         former[e.currentTarget.name] = e.currentTarget.value;
-        this.setState({former: former});
-        this.props.changeInputAddFormer(former);
+        this.setState({former: former});*/
+        this.props.changeInputAddFormer(e.currentTarget.value, this.props.index);
     }
 
     render() {
-        const formation = this.props;
-        const { former } = this.state;
+        const { former } = this.props;
+        console.log('former', former);
 
         return (
             <div className="add-former">
@@ -37,11 +37,7 @@ export class AddFormer extends Component {
                 </div>
 
                 <div className="other">
-                    {
-                        formation.formers && formation.formers.map((former) => {
-                            former.lastname
-                        })
-                    }
+
                     <div className="add-formation-former">
                         <label htmlFor="lastname">Nom: </label>
                         <input

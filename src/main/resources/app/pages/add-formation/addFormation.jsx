@@ -8,6 +8,7 @@ import {sendToast} from "../../redux/toast/dispatch";
 import moment from "moment";
 import 'moment/locale/fr';
 import {AddFormer} from "../add-former/addFormer";
+import formation from "../../components/formation/formation";
 
 const defaultFormation = {
     name: "",
@@ -24,7 +25,15 @@ const defaultFormation = {
     transfert: "",
     phone: "",
     email: "",
-    formers: [],
+    formers: [
+        {
+            firstname: "",
+            lastname: "",
+            job: "",
+            email: "",
+            phone: "",
+        }
+    ],
     module: []
 }
 
@@ -41,8 +50,10 @@ class AddFormation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formation: {...defaultFormation, formers: [], module: []},
+            formation: {...JSON.parse(JSON.stringify(defaultFormation))},
+/*
             former: defaultFormer,
+*/
         }
     }
 
@@ -54,13 +65,19 @@ class AddFormation extends Component {
     };
 
     // creer une fonction on qui est passée à l'enfant
-    changeInputAddFormer = (e) => {
+    changeInputAddFormer = (e, index) => {
         let formers =  this.state.formation.formers;
-        let former = this.state.former;
-        this.setState({ former: e});
+        if(formers[index])
+        {
+            formers[index] = e;
+            this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
+        }
+
+       /* let former = formers[index];
+        //this.setState({ former: e});
 
         formers.push(former);
-        this.setState({formers: formers})
+        this.setState({formers: formers})*/
         console.log("former_setstate:", e);
         console.log("formers:", formers);
     }
@@ -108,22 +125,35 @@ class AddFormation extends Component {
         const {formation} = this.state;
         dispatch(addFormation(formation))
             .then(() => {
-                this.setState({formation: {...defaultFormation, formers: []}});
+                this.setState({formation: {...JSON.parse(JSON.stringify(defaultFormation)), formers: []}});
+                //this.setState({formation: {...JSON.parse(JSON.stringify(defaultFormation))}});
             })
             .catch(error => {
                 console.log("error", error.message);
             })
+        console.log('defaultFormation', defaultFormation);
+    }
+
+    addFormerTo = () => {
+        console.log('ajout former');
+        const formers = this.state.formation.formers;
+        formers.push(defaultFormer);
+        this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        e.target.reset();
+       // e.target.reset();
         this.checkForm();
+       // this.setState({formation: defaultFormation});
+
     };
 
     render() {
         const {formation} = this.state;
         const formers = formation.formers;
+        console.log('formation', formation);
 
         return (
             <div className="formation-container">
@@ -140,7 +170,6 @@ class AddFormation extends Component {
                                 type="text"
                                 value={formation.name}
                                 onChange={this.changeInput}
-                                required
                             />
                         </div>
 
@@ -156,7 +185,6 @@ class AddFormation extends Component {
                                     type="date"
                                     value={formation.date}
                                     onChange={this.changeInput}
-                                    required
                                 />
                             </div>
 
@@ -211,7 +239,6 @@ class AddFormation extends Component {
                                 type="text"
                                 value={formation.target}
                                 onChange={this.changeInput}
-                                required
                             />
                         </div>
 
@@ -224,7 +251,6 @@ class AddFormation extends Component {
                                 type="text"
                                 value={formation.place}
                                 onChange={this.changeInput}
-                                required
                             />
                         </div>
 
@@ -250,11 +276,33 @@ class AddFormation extends Component {
                             </textarea>
                         </div>
 
+                         {
+                             formation.formers && formation.formers.map((former, index) => {
+                                return (
+                                    <AddFormer
+                                        key={`former${index}`}
+                                        former = {former}
+                                        index={index}
+                                        changeInputAddFormer = {this.changeInputAddFormer}
+                                    />
+                                )
+                            })
+                        }
+
+
+                        <div className="add-formation-button">
+                            <button type="button" className="btn btn-valider" onClick={this.addFormerTo}>
+                                +
+                            </button>
+                        </div>
+{/*
                         <AddFormer
                             formation = { formation }
+                            former = {formers[0]}
                             changeInputAddFormer = {this.changeInputAddFormer}
                         />
 
+*/}
                         <div className="add-formation-footer">
 
                             <div className="add-formation-price">
@@ -267,7 +315,6 @@ class AddFormation extends Component {
                                     value={formation.price}
                                     onChange={this.changeInput}
                                     min="0"
-                                    required
                                 />
                             </div>
 
@@ -281,7 +328,6 @@ class AddFormation extends Component {
                                     pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
                                     value={formation.transfert}
                                     onChange={this.changeInput}
-                                    required
                                 />
                             </div>
 
@@ -294,7 +340,6 @@ class AddFormation extends Component {
                                     type="email"
                                     value={formation.email}
                                     onChange={this.changeInput}
-                                    required
                                 />
                             {/*</div>*/}
                             </div>
