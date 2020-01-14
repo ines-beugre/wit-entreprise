@@ -125,7 +125,7 @@ class AddFormation extends Component {
         const {formation} = this.state;
         dispatch(addFormation(formation))
             .then(() => {
-                this.setState({formation: {...JSON.parse(JSON.stringify(defaultFormation)), formers: []}});
+                this.setState({formation: {...JSON.parse(JSON.stringify(defaultFormation))}});
                 //this.setState({formation: {...JSON.parse(JSON.stringify(defaultFormation))}});
             })
             .catch(error => {
@@ -139,7 +139,6 @@ class AddFormation extends Component {
         const formers = this.state.formation.formers;
         formers.push(defaultFormer);
         this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
-
     }
 
     handleSubmit(e) {

@@ -11,18 +11,22 @@ const defaultFormer = {
 
 export class AddFormer extends Component {
 
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-        // this.state = {
-        //     former: defaultFormer
-        // }
-    }
+        /!* this.state = {
+           former: defaultFormer
+        }*!/
+    }*/
 
     changeInputFormer = (e) => {
-        /*let former = this.state.former;
+        // let former = this.state.former;
+        let { former } = this.props
         former[e.currentTarget.name] = e.currentTarget.value;
-        this.setState({former: former});*/
+        //this.setState({former: former});
+/*
         this.props.changeInputAddFormer(e.currentTarget.value, this.props.index);
+*/
+        this.props.changeInputAddFormer(former, this.props.index);
     }
 
     render() {
