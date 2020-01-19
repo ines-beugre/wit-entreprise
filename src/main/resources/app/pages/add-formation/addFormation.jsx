@@ -125,7 +125,7 @@ class AddFormation extends Component {
         console.log('defaultFormation', defaultFormation);
     }
 
-    addFormerTo = () => {
+    addFormerButton = () => {
         console.log('ajout former');
         const formers = this.state.formation.formers;
         formers.push(defaultFormer);
@@ -281,7 +281,7 @@ class AddFormation extends Component {
 
 
                         <div className="add-formation-button">
-                            <button type="button" className="btn btn-valider" onClick={this.addFormerTo}>
+                            <button type="button" className="btn btn-valider" onClick={this.addFormerButton}>
                                 +
                             </button>
                         </div>
