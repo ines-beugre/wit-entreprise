@@ -9,6 +9,7 @@ import moment from "moment";
 import 'moment/locale/fr';
 import {AddFormer} from "../add-former/addFormer";
 import formation from "../../components/formation/formation";
+import AddModule from "../add-module/addModule";
 
 const defaultFormation = {
     name: "",
@@ -34,7 +35,14 @@ const defaultFormation = {
             phone: "",
         }
     ],
-    module: []
+    module: [
+        {
+            name: "",
+            startTime: "",
+            endTime: "",
+            description: "",
+        }
+    ]
 }
 
 const defaultFormer = {
@@ -71,6 +79,10 @@ class AddFormation extends Component {
             formers[index] = e;
             this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
         }
+    }
+
+    changeInputAddModule = (e) => {
+        console.log(e);
     }
 
     getImage = (e) => {
@@ -266,6 +278,14 @@ class AddFormation extends Component {
                             </textarea>
                         </div>
 
+                        {/*
+                        <AddFormer
+                            formation = { formation }
+                            former = {formers[0]}
+                            changeInputAddFormer = {this.changeInputAddFormer}
+                        />
+
+*/}
                          {
                              formation.formers && formation.formers.map((former, index) => {
                                 return (
@@ -279,20 +299,17 @@ class AddFormation extends Component {
                             })
                         }
 
-
                         <div className="add-formation-button">
                             <button type="button" className="btn btn-valider" onClick={this.addFormerButton}>
                                 +
                             </button>
                         </div>
-{/*
-                        <AddFormer
+
+                        <AddModule
                             formation = { formation }
-                            former = {formers[0]}
-                            changeInputAddFormer = {this.changeInputAddFormer}
+                            changeInputAddModule = {this.changeInputAddModule}
                         />
 
-*/}
                         <div className="add-formation-footer">
 
                             <div className="add-formation-price">

@@ -9,7 +9,23 @@ const defaultModule = {
 
 export default class AddModule extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            module: defaultModule
+        }
+    }
+
+    changeInputModule = (e) => {
+        let module = this.state.module;
+        module[e.currentTarget.name] = e.currentTarget.value;
+        this.setState({former: module});
+        this.props.changeInputAddModule(module);
+    }
+
     render(){
+        const { module } = this.state;
+
         return(
             <div className="add-formation-modules">
                 <label>Modules</label>
@@ -18,10 +34,10 @@ export default class AddModule extends Component {
                     <label>Nom du module: </label>
                     <input
                         className="module-name"
-                        name="name-module"
+                        name="name"
                         type="text"
-                        value={formation.module}
-                        onChange={this.changeInput}
+                        value={module.name}
+                        onChange={this.changeInputModule}
                     />
                 </div>
 
@@ -32,7 +48,7 @@ export default class AddModule extends Component {
                         name="start-time"
                         type="time"
                         value={module.startTime}
-                        onChange={this.changeInput}
+                        onChange={this.changeInputModule}
                     />
                 </div>
 
@@ -43,7 +59,7 @@ export default class AddModule extends Component {
                         name="end-time"
                         type="time"
                         value={module.endTime}
-                        onChange={this.changeInput}
+                        onChange={this.changeInputModule}
                     />
                 </div>
 
@@ -54,7 +70,7 @@ export default class AddModule extends Component {
                         name="module-description"
                         type="text"
                         value={module.description}
-                        onChange={this.changeInput}
+                        onChange={this.changeInputModule}
                     />
                 </div>
 
