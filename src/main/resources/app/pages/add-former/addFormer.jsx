@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import formation from "../../components/formation/formation";
 
 const defaultFormer = {
     firstname: "",
@@ -11,21 +10,9 @@ const defaultFormer = {
 
 export class AddFormer extends Component {
 
-    /*constructor(props) {
-        super(props);
-        /!* this.state = {
-           former: defaultFormer
-        }*!/
-    }*/
-
     changeInputFormer = (e) => {
-        // let former = this.state.former;
         let { former } = this.props
         former[e.currentTarget.name] = e.currentTarget.value;
-        //this.setState({former: former});
-/*
-        this.props.changeInputAddFormer(e.currentTarget.value, this.props.index);
-*/
         this.props.changeInputAddFormer(former, this.props.index);
     }
 

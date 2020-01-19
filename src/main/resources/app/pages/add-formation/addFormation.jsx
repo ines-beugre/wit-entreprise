@@ -64,7 +64,6 @@ class AddFormation extends Component {
         console.log("formation_set_state", this.state.formation);
     };
 
-    // creer une fonction on qui est passée à l'enfant
     changeInputAddFormer = (e, index) => {
         let formers =  this.state.formation.formers;
         if(formers[index])
@@ -72,14 +71,6 @@ class AddFormation extends Component {
             formers[index] = e;
             this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
         }
-
-       /* let former = formers[index];
-        //this.setState({ former: e});
-
-        formers.push(former);
-        this.setState({formers: formers})*/
-        console.log("former_setstate:", e);
-        console.log("formers:", formers);
     }
 
     getImage = (e) => {
@@ -340,7 +331,6 @@ class AddFormation extends Component {
                                     value={formation.email}
                                     onChange={this.changeInput}
                                 />
-                            {/*</div>*/}
                             </div>
 
                         </div>
