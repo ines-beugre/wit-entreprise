@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import orangeMoney from "../../images/orange-money.png";
 import './addFormation.css';
 import '../add-former/addFormer';
-import {connect} from 'react-redux';
-import {addFormation} from "../../redux/formations/dispatch";
-import {sendToast} from "../../redux/toast/dispatch";
+import { connect } from 'react-redux';
+import { addFormation } from "../../redux/formations/dispatch";
+import { sendToast } from "../../redux/toast/dispatch";
 import moment from "moment";
 import 'moment/locale/fr';
-import {AddFormer} from "../add-former/addFormer";
+import { AddFormer } from "../add-former/addFormer";
+import { AddModule } from "../add-module/addModule";
 import formation from "../../components/formation/formation";
-import AddModule from "../add-module/addModule";
 
 const defaultFormation = {
     name: "",
@@ -35,7 +35,7 @@ const defaultFormation = {
             phone: "",
         }
     ],
-    module: [
+    modules: [
         {
             name: "",
             startTime: "",
@@ -43,14 +43,6 @@ const defaultFormation = {
             description: "",
         }
     ]
-}
-
-const defaultFormer = {
-    firstname: "",
-    lastname: "",
-    job: "",
-    email: "",
-    phone: "",
 }
 
 class AddFormation extends Component {
@@ -74,14 +66,18 @@ class AddFormation extends Component {
 
     changeInputAddFormer = (e, index) => {
         let formers =  this.state.formation.formers;
-        if(formers[index])
-        {
+        if (formers[index]) {
             formers[index] = e;
             this.setState({...this.state, formation: {...this.state.formation, formers: formers}});
         }
     }
 
-    changeInputAddModule = (e) => {
+    changeInputAddModule = (e, index) => {
+        let modules = this.state.formation.modules;
+        if (modules[index]) {
+           modules[index] = e;
+           this.setState({...this.state, formation: {...this.state.formation, modules: modules}});
+        }
         console.log(e);
     }
 
@@ -154,7 +150,7 @@ class AddFormation extends Component {
 
     render() {
         const {formation} = this.state;
-        const formers = formation.formers;
+        const {modules} = formation.modules;
         console.log('formation', formation);
 
         return (
@@ -217,7 +213,6 @@ class AddFormation extends Component {
                                     accept="image/*"
                                 />
                             {/*</label>*/}
-
                         </div>
 
                         <div className="add-formation-theme">
@@ -284,8 +279,7 @@ class AddFormation extends Component {
                             former = {formers[0]}
                             changeInputAddFormer = {this.changeInputAddFormer}
                         />
-
-*/}
+                        */}
                          {
                              formation.formers && formation.formers.map((former, index) => {
                                 return (
@@ -305,10 +299,18 @@ class AddFormation extends Component {
                             </button>
                         </div>
 
-                        <AddModule
-                            formation = { formation }
-                            changeInputAddModule = {this.changeInputAddModule}
-                        />
+                        {
+                            formation.modules && formation.modules.map((module, index) => {
+                                return (
+                                    <AddModule
+                                        key={`formers${index}`}
+                                        module = { module }
+                                        index = { index }
+                                        changeInputAddModule = {this.changeInputAddModule}
+                                    />
+                                )
+                            })
+                        }
 
                         <div className="add-formation-footer">
 

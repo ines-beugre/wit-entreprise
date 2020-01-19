@@ -7,24 +7,24 @@ const defaultModule = {
     description: "",
 }
 
-export default class AddModule extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            module: defaultModule
-        }
-    }
+export class AddModule extends Component {
 
     changeInputModule = (e) => {
-        let module = this.state.module;
+        let { module } = this.props;
         module[e.currentTarget.name] = e.currentTarget.value;
-        this.setState({former: module});
-        this.props.changeInputAddModule(module);
+        this.props.changeInputAddModule(module, this.props.index);
+    }
+
+    handleChangehour = (field, e) => {
+        let { module } = this.props;
+        let hour = module.startTime;
+        this.setState({ [field]: e.target.value })
+
     }
 
     render(){
-        const { module } = this.state;
+        const { module } = this.props;
+        console.log('module', module);
 
         return(
             <div className="add-formation-modules">
@@ -40,6 +40,17 @@ export default class AddModule extends Component {
                         onChange={this.changeInputModule}
                     />
                 </div>
+
+                {/*<div className="add-formation-module">
+                    <label>Heure de début: </label>
+                    <input
+                        className="module-hour"
+                        type="time"
+                        name="start-time"
+                        value={module.startTime}
+                        onChange={e => this.handleChangehour('startTime', e)}
+                    />
+                </div>*/}
 
                 <div className="add-formation-module">
                     <label>Heure de début: </label>
