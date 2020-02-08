@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TimeField from "react-simple-timefield";
 
 const defaultModule = {
     name: "",
@@ -8,6 +9,15 @@ const defaultModule = {
 }
 
 export class AddModule extends Component {
+
+    constructor(...args) {
+        super(...args);
+
+        this.state = {
+            time: '12:34'
+        };
+        this.onTimeChange = this.onTimeChange.bind(this);
+    }
 
     changeInputModule = (e) => {
         let { module } = this.props;
@@ -22,8 +32,13 @@ export class AddModule extends Component {
 
     }
 
+    onTimeChange(time) {
+        this.setState({time});
+    }
+
     render(){
         const { module } = this.props;
+        const {time} = this.state;
         console.log('module', module);
 
         return(
@@ -41,6 +56,10 @@ export class AddModule extends Component {
                     />
                 </div>
 
+
+                <TimeField value={module.value} onChange={this.onTimeChange} />
+
+
                 {/*<div className="add-formation-module">
                     <label>Heure de début: </label>
                     <input
@@ -52,7 +71,7 @@ export class AddModule extends Component {
                     />
                 </div>*/}
 
-                <div className="add-formation-module">
+               {/* <div className="add-formation-module">
                     <label>Heure de début: </label>
                     <input
                         className="module-hour"
@@ -72,9 +91,9 @@ export class AddModule extends Component {
                         value={module.endTime}
                         onChange={this.changeInputModule}
                     />
-                </div>
+                </div>*/}
 
-                <div className="add-formation-module">
+             {/*   <div className="add-formation-module">
                     <label>Description: </label>
                     <input
                         className="module-description"
@@ -83,7 +102,7 @@ export class AddModule extends Component {
                         value={module.description}
                         onChange={this.changeInputModule}
                     />
-                </div>
+                </div>*/}
 
             </div>
         )
